@@ -164,7 +164,7 @@ ul.language-list li:hover{cursor:pointer;}
 .admin-header-links .administration{font-weight:bold;}
 .admin-header-links span.impersonate{color:#E44097;font-weight:700;}
 .admin-header-links span.impersonate .finish-impersonation{color:#F93;}
-.header-menu {background: none repeat scroll 0 0 #404040;border-radius: 4px;-o-border-radius: 4px;-icab-border-radius: 4px;-khtml-border-radius: 4px;-moz-border-radius: 4px;-webkit-border-radius: 4px;-moz-border-radius: 4px;height: 32px;list-style: none outside none;margin: 10px auto 0;padding: 0 10px;}
+.header-menu {background: none repeat scroll 0 0 #4d9bbc;border-radius: 4px;-o-border-radius: 4px;-icab-border-radius: 4px;-khtml-border-radius: 4px;-moz-border-radius: 4px;-webkit-border-radius: 4px;-moz-border-radius: 4px;height: 32px;list-style: none outside none;margin: 10px auto 0;padding: 0 10px;}
 .header-menu a {color: #FFFFFF;font-size: 1.1em;text-decoration:none;}
 .header-menu li {float: right;list-style: none outside none;padding: 7px 8px;margin-left: 10px;font-size: 1.1em;line-height: 17px;}
 .header-menu li:hover {background:#696969;}

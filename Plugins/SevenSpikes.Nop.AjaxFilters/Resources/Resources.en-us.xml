@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Language Name="English">
+  <LocaleResource Name="SevenSpikes">
+    <Value></Value>
+    <Children>
+      <LocaleResource Name="NopAjaxFilters">
+        <Value>Nop Ajax Filters</Value>
+        <Children>
+          <LocaleResource Name="Client">
+            <Value></Value>
+            <Children>
+              <LocaleResource Name="PriceRangeFilter">
+                <Value></Value>
+                <Children>
+                  <LocaleResource Name="Title">
+                    <Value>Price range</Value>
+                  </LocaleResource>
+                  <LocaleResource Name="Min">
+                    <Value>Min</Value>
+                  </LocaleResource>
+                  <LocaleResource Name="Max">
+                    <Value>Max</Value>
+                  </LocaleResource>
+                </Children>
+              </LocaleResource>
+              <LocaleResource Name="Common">
+                <Children>
+                  <LocaleResource Name="FilterBy">
+                    <Value>Filter by</Value>
+                  </LocaleResource>
+                  <LocaleResource Name="ClearAll">
+                    <Value>Clear All</Value>
+                  </LocaleResource>
+                  <LocaleResource Name="Clear">
+                    <Value>Clear</Value>
+                  </LocaleResource>
+                  <LocaleResource Name="All">
+                    <Value>All</Value>
+                  </LocaleResource>
+                </Children>
+              </LocaleResource>
+            </Children>
+          </LocaleResource>
+          <LocaleResource Name="Admin">
+            <Value>Nop Ajax Filters</Value>
+            <Children>
+              <LocaleResource Name="Settings">
+                <Value>Settings</Value>
+              </LocaleResource>
+              <LocaleResource Name="Theme">
+                <Value>Theme</Value>
+                <Children>
+                  <LocaleResource Name="Hint">
+                    <Value>The theme for the filters. The theme name correponds to the name of a folder inside the Themes folder. </Value>
+                  </LocaleResource>
+                </Children>
+              </LocaleResource>
+              <LocaleResource Name="FiltersUIMode">
+                <Value>Filters UI Mode</Value>
+                <Children>
+                  <LocaleResource Name="Hint">
+                    <Value>The user interface mode of the Ajax Filters (checkboxes or dropdowns).</Value>
+                  </LocaleResource>
+                </Children>
+              </LocaleResource>
+              <LocaleResource Name="EnablePriceRangeFilter">
+                <Value>Enable Price Range Filter</Value>
+                <Children>
+                  <LocaleResource Name="Hint">
+                    <Value>Enable filtering based on product price.</Value>
+                  </LocaleResource>
+                </Children>
+              </LocaleResource>
+              <LocaleResource Name="EnableSpecificationsFilter">
+                <Value>Enable Specifications Filter</Value>
+                <Children>
+                  <LocaleResource Name="Hint">
+                    <Value>Enable filtering based on product specifications. </Value>
+                  </LocaleResource>
+                </Children>
+              </LocaleResource>
+              <LocaleResource Name="EnableAttributesFilter">
+                <Value>Enable Attributes Filter</Value>
+                <Children>
+                  <LocaleResource Name="Hint">
+                    <Value>Enable filtering based on product attributes.</Value>
+                  </LocaleResource>
+                </Children>
+              </LocaleResource>
+              <LocaleResource Name="EnableManufacturersFilter">
+                <Value>Enable Manufacturers Filter</Value>
+                <Children>
+                  <LocaleResource Name="Hint">
+                    <Value>Enable filtering based on product manufacturers.</Value>
+                  </LocaleResource>
+                </Children>
+              </LocaleResource>
+              <LocaleResource Name="IncludeProductsFromSubcategories">
+                <Value>Include Products From Subcategories</Value>
+                <Children>
+                  <LocaleResource Name="Hint">
+                    <Value>Include products from subcategories in the Ajax Filters.</Value>
+                  </LocaleResource>
+                </Children>
+              </LocaleResource>
+              <LocaleResource Name="ProductsListPanelSelector">
+                <Value>Products List Panel Selector</Value>
+                <Children>
+                  <LocaleResource Name="Hint">
+                    <Value>Html selector for the panel that contains the product list.</Value>
+                  </LocaleResource>
+                </Children>
+              </LocaleResource>
+              <LocaleResource Name="ProductsGridPanelSelector">
+                <Value>Products Grid Panel Selector</Value>
+                <Children>
+                  <LocaleResource Name="Hint">
+                    <Value>Html selector for the panel that contains the product grid.</Value>
+                  </LocaleResource>
+                </Children>
+              </LocaleResource>
+              <LocaleResource Name="PagerPanelSelector">
+                <Value>Pager Panel Selector</Value>
+                <Children>
+                  <LocaleResource Name="Hint">
+                    <Value>Html selector for the panel that contains the paging.</Value>
+                  </LocaleResource>
+                </Children>
+              </LocaleResource>
+              <LocaleResource Name="SortOptionsDropDownSelector">
+                <Value>Sort Options Dropdown Selector</Value>
+                <Children>
+                  <LocaleResource Name="Hint">
+                    <Value>Html selector for the panel that contains the sorted options for the dropdown list.</Value>
+                  </LocaleResource>
+                </Children>
+              </LocaleResource>
+              <LocaleResource Name="ViewOptionsDropDownSelector">
+                <Value>View Options Dropdown Selector</Value>
+                <Children>
+                  <LocaleResource Name="Hint">
+                    <Value>Html selector for the panel that contains the view options for the dropdown (grid or list).</Value>
+                  </LocaleResource>
+                </Children>
+              </LocaleResource>
+              <LocaleResource Name="ProductPageSizeDropDownSelector">
+                <Value>Product Page Size Dropdown Selector</Value>
+                <Children>
+                  <LocaleResource Name="Hint">
+                    <Value>Html selector for the panel that contains the product page size dropdown.</Value>
+                  </LocaleResource>
+                </Children>
+              </LocaleResource>
+              <LocaleResource Name="SystemSettingsInfo">
+                <Value>System Settings (please do not edit unless you have css style names for the product or pager panels different from the default):</Value>
+              </LocaleResource>
+              <LocaleResource Name="CreateOrUpdate">
+                <Value>Create or Update</Value>
+              </LocaleResource>
+              <LocaleResource Name="WidgetZone">
+                <Value>Widget Zones</Value>
+                <Children>
+                  <LocaleResource Name="Hint">
+                    <Value>The names of the widget zones in which the Ajax Filters can be added. </Value>
+                  </LocaleResource>
+                </Children>
+              </LocaleResource>
+              <LocaleResource Name="Widget">
+                <Value>Widget</Value>
+                <Children>
+                  <LocaleResource Name="Description">
+                    <Value>You can add the NopAjaxFilters plugin to only one widget zone at a time.</Value>
+                  </LocaleResource>
+                  <LocaleResource Name="WidgetZone">
+                    <Value>Widget Zone</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>The widget zone to which the Ajax Filters will be added.</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="AddAjaxFilters">
+                    <Value>Add the Ajax Filters to new widget zone</Value>
+                  </LocaleResource>
+                </Children>
+              </LocaleResource>
+              <LocaleResource Name="ClickToConfigure">
+                <Value>To configure the plugin either click HERE or go to Plugins -> Nop Ajax Filters -> Settings</Value>
+              </LocaleResource>
+            </Children>
+          </LocaleResource>
+        </Children>
+      </LocaleResource>
+    </Children>
+  </LocaleResource>
+  <LocaleResource Name="Enums">
+    <LocaleResource Name="SevenSpikes.Nop.AjaxFilters.Domain.FiltersUIMode">
+      <Children>
+        <LocaleResource Name="UseCheckboxes">
+          Use Checkboxes
+        </LocaleResource>
+        <LocaleResource Name="UserDropdowns">
+          Use Dropdowns
+        </LocaleResource>
+      </Children>
+    </LocaleResource>
+  </LocaleResource>
+
+</Language>

@@ -1,0 +1,308 @@
+/*
+* Copyright 2012 Seven Spikes Ltd. All rights reserved. (http://www.nop-templates.com)
+* http://www.nop-templates.com/t/licensinginfo
+*/
+
+.carousel_holder.default-5-items {
+	margin: 0 10px 20px;
+	border-bottom: 1px dotted #ccc;
+}
+
+.carousel_holder.default-5-items h2 {
+	height: 25px;
+	background: url("images/boxhead1.png") repeat-x scroll center center transparent;
+	overflow: hidden;
+	margin: 0 0 10px;
+	padding: 0 10px;
+	white-space: nowrap;
+	font: bold 13px/25px Arial,Helvetica,sans-serif;
+	color: #fff;
+	text-shadow: -1px -1px 0 #666666;
+	border: 1px solid #999;
+	border-bottom: 1px solid #888;
+    border-radius: 2px;
+    box-shadow: 0 0 3px #fff inset; 
+}
+
+.carousel_holder.default-5-items h2.vertical {
+}
+
+.jcarousel-skin-default-5-items .jcarousel-container
+{
+	background: #fff;
+	padding: 5px 0 0;
+}
+
+.jcarousel-skin-default-5-items .jcarousel-direction-rtl
+{
+    direction: rtl;
+}
+
+.jcarousel-skin-default-5-items .jcarousel-container-horizontal
+{
+    width: auto;
+    padding: 0px 0px 10px;
+}
+
+.jcarousel-skin-default-5-items .jcarousel-container-vertical
+{
+    padding: 25px 13px 20px;
+	border-left: 1px dashed #ccc;
+	border-right: 1px dashed #ccc;
+}
+
+.jcarousel-skin-default-5-items .jcarousel-clip
+{
+    overflow: hidden;
+}
+
+.jcarousel-skin-default-5-items .jcarousel-clip-horizontal
+{
+    width: auto;
+	margin: 0 15px;
+}
+
+.jcarousel-skin-default-5-items .jcarousel-clip-vertical
+{
+    width: 152px;
+    height: 260px;
+}
+
+.jcarousel-list {
+}
+
+.jcarousel-skin-default-5-items .jcarousel-item
+{
+    width: 152px !important;
+	background: #dde3ff;
+	padding: 10px;
+	border: 1px solid #ccf;
+	box-shadow: 0 0 1px #fff;
+}
+
+.jcarousel-item .thumb-img
+{
+    display: block;
+    width: 140px;
+    height: 140px;
+    overflow: hidden;
+	margin: 0 auto 10px;
+	text-align: center;
+	border: 1px solid #ccf;
+	box-shadow: 0 0 3px #ccc;
+}
+
+.jcarousel-skin-default-5-items .jcarousel-item-horizontal
+{
+    margin-left: 0;
+    margin-right: 10px;
+}
+
+.jcarousel-skin-default-5-items .jcarousel-direction-rtl .jcarousel-item-horizontal
+{
+    margin-left: 10px;
+    margin-right: 0;
+}
+
+.jcarousel-skin-default-5-items .jcarousel-item-vertical
+{
+	width: 140px !important;
+	height: 250px !important;
+    margin-bottom: 10px;
+}
+
+.jcarousel-skin-default-5-items .jcarousel-item-placeholder
+{
+    background: #fff;
+    color: #000;
+}
+
+/**
+ *  Horizontal Buttons
+ */
+.jcarousel-skin-default-5-items .jcarousel-next-horizontal
+{
+    position: absolute;
+    top: 50%;
+    right: -4px;
+    width: 12px;
+    height: 15px;
+    cursor: pointer;
+    background: url('images/next-horizontal.png') top no-repeat;
+	margin: -12px 0 0;
+}
+
+.jcarousel-skin-default-5-items .jcarousel-next-horizontal:hover, .jcarousel-skin-default-5-items .jcarousel-next-horizontal:focus
+{
+	background-position: bottom;
+}
+
+.jcarousel-skin-default-5-items .jcarousel-next-horizontal:active
+{
+    background-position: -64px 0;
+}
+
+.jcarousel-skin-default-5-items .jcarousel-next-disabled-horizontal, .jcarousel-skin-default-5-items .jcarousel-next-disabled-horizontal:hover, .jcarousel-skin-default-5-items .jcarousel-next-disabled-horizontal:focus, .jcarousel-skin-default-5-items .jcarousel-next-disabled-horizontal:active
+{
+	cursor: default;
+    opacity: 0.5;
+}
+.jcarousel-next-disabled:hover {
+	background-position: top !important;
+}
+
+.jcarousel-skin-default-5-items .jcarousel-prev-horizontal
+{
+    position: absolute;
+    top: 50%;
+    left: -4px;
+    width: 12px;
+    height: 15px;
+    cursor: pointer;
+    background: url('images/prev-horizontal.png') top no-repeat;
+	margin: -12px 0 0;
+}
+
+.jcarousel-skin-default-5-items .jcarousel-prev-horizontal:hover, .jcarousel-skin-default-5-items .jcarousel-prev-horizontal:focus
+{
+    background-position: bottom;
+}
+
+.jcarousel-skin-default-5-items .jcarousel-prev-horizontal:active
+{
+    background-position: -64px 0;
+}
+
+.jcarousel-skin-default-5-items .jcarousel-prev-disabled-horizontal, .jcarousel-skin-default-5-items .jcarousel-prev-disabled-horizontal:hover, .jcarousel-skin-default-5-items .jcarousel-prev-disabled-horizontal:focus, .jcarousel-skin-default-5-items .jcarousel-prev-disabled-horizontal:active
+{
+	cursor: default;
+    opacity: 0.5;
+}
+.jcarousel-prev-disabled:hover {
+	background-position: top !important;
+}
+
+/**
+ *  Vertical Buttons
+ */
+.jcarousel-skin-default-5-items .jcarousel-next-vertical
+{
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    width: 15px;
+    height: 12px;
+    cursor: pointer;
+    background: transparent url('images/next-vertical.png') no-repeat;
+	margin: 0 0 0 -8px;
+}
+
+.jcarousel-skin-default-5-items .jcarousel-next-vertical:hover, .jcarousel-skin-default-5-items .jcarousel-next-vertical:focus
+{
+	background-position: bottom;
+}
+
+.jcarousel-skin-default-5-items .jcarousel-next-vertical:active
+{
+    background-position: 0 -64px;
+}
+
+.jcarousel-skin-default-5-items .jcarousel-next-disabled-vertical, .jcarousel-skin-default-5-items .jcarousel-next-disabled-vertical:hover, .jcarousel-skin-default-5-items .jcarousel-next-disabled-vertical:focus, .jcarousel-skin-default-5-items .jcarousel-next-disabled-vertical:active
+{
+    cursor: default;
+    opacity: 0.5;
+}
+
+.jcarousel-skin-default-5-items .jcarousel-prev-vertical
+{
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    width: 15px;
+    height: 12px;
+    cursor: pointer;
+    background: transparent url('images/prev-vertical.png') no-repeat 0 0;
+	margin: 0 0 0 -8px;
+}
+
+.jcarousel-skin-default-5-items .jcarousel-prev-vertical:hover, .jcarousel-skin-default-5-items .jcarousel-prev-vertical:focus
+{
+	background-position: bottom;
+}
+
+.jcarousel-skin-default-5-items .jcarousel-prev-vertical:active
+{
+    background-position: 0 -64px;
+}
+
+.jcarousel-skin-default-5-items .jcarousel-prev-disabled-vertical, .jcarousel-skin-default-5-items .jcarousel-prev-disabled-vertical:hover, .jcarousel-skin-default-5-items .jcarousel-prev-disabled-vertical:focus, .jcarousel-skin-default-5-items .jcarousel-prev-disabled-vertical:active
+{
+    cursor: default;
+    opacity: 0.5;
+}
+
+.jcarousel-product-name
+{
+	display: block;
+	height: 30px;
+	overflow: hidden;
+    color: #3664A5;
+    font-size: 12px;
+	font-weight: bold;
+    margin: 3px 0;
+    line-height: 14px;
+    cursor: pointer;
+    overflow: hidden;
+	text-shadow: 1px 1px 0 #fff;
+}
+
+.jcarousel-item .short_descript {
+	height: 27px;
+	overflow: hidden;
+	margin: 0 0 5px;
+	font: normal normal 11px Arial, Helvetica, sans-serif;
+	color: #666;
+}
+.jcarousel-item-vertical .short_descript {
+}
+
+.jcarousel-item .price_line {
+	margin-bottom: 5px;
+}
+
+.jcarousel-price
+{
+    color: #333;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.jcarousel-old-price
+{
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 12px;
+    color: #666;
+    margin-top: 3px;
+    text-decoration: line-through;
+}
+
+.jcarousel-item .button {
+	display: inline-block;
+	/*height: 22px;
+	background: url('images/jc_button.png') top repeat-x;
+	padding: 0 8px;*/
+	text-align: center;
+	font: normal normal 12px Tahoma, Geneva, sans-serif;
+	color: #3664A5;
+	border-radius: 2px;
+}
+
+.jcarousel-item .button:hover {
+	background-position: bottom;
+}
+
+/* If the wrap is set to circular and the carousel skin can display more items than there are, the carousel adds additional <li> elements to fill the
+    empty spaces. This class is added only for those empty elements. They should not be visible. */
+.jcarousel-item-placeholder-horizontal {
+    visibility: hidden;
+}

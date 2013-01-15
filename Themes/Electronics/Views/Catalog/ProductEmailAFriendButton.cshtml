@@ -1,0 +1,5 @@
+﻿@model ProductEmailAFriendModel
+@using Nop.Web.Models.Catalog;
+<p class="email-friend">
+    <a href="@(@Url.RouteUrl("ProductEmailAFriend", new { productId = Model.ProductId }))">@T("Products.EmailAFriend")</a>
+</p>

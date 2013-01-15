@@ -1,0 +1,12 @@
+﻿@model ProductDetailsModel.ProductVariantModel
+@using Nop.Web.Models.Catalog;
+@if (Model.HasSampleDownload)
+{
+    <div class="download-sample">
+        <img class="button-left" src="@Url.Content("~/Themes/Electronics/Content/images/download_button_left.jpg")" alt="" />
+        <span class="download-sample-button">
+            <a href="@Url.RouteUrl("GetSampleDownload", new { productvariantid = Model.Id })">@T("Products.DownloadSample")</a>
+        </span>
+        <img class="button-right-arrow" src="@Url.Content("~/Themes/Electronics/Content/images/download_arrow.jpg")" alt="" />
+    </div>
+}

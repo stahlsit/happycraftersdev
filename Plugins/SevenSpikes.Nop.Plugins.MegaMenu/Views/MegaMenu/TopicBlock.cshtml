@@ -1,0 +1,18 @@
+﻿@** Copyright 2012 Seven Spikes Ltd. All rights reserved. (http://www.nop-templates.com)
+* http://www.nop-templates.com/t/licensinginfo
+*@
+
+@model TopicModel
+@using Nop.Web.Models.Topics;
+@if (!String.IsNullOrEmpty(Model.Title))
+{
+    <a href="#">@Model.Title</a>
+}
+else
+{
+    <a href="#">@T("SevenSpikes.MegaMenu.DefaultTopicTitle")</a>
+}
+<div class="dropdown">
+            @Html.Raw(Model.Body)
+</div>
+

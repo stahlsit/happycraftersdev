@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Language Name="English">
+  <LocaleResource Name="SevenSpikes">
+    <Children>
+      <LocaleResource Name="NopSmartSEO">
+        <Children>
+          <LocaleResource Name="Admin">
+            <Children>
+              <LocaleResource Name="NopSmartSEO">
+                <Value>Nop Smart SEO</Value>
+              </LocaleResource>
+              <LocaleResource Name="SmartSEOSettings">
+                <Value>Smart SEO Settings</Value>
+                <Children>
+                  <LocaleResource Name="EnableSmartSEO">
+                    <Value>Enable Smart SEO</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>Enable Smart SEO</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="DontOverrideDefaultMetaData">
+                    <Value>Do Not Override Default Meta Data</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>Do Not override default meta data if there is one.</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="RemoveDefaultTitle">
+                    <Value>Remove Default Title</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>If enabled the default title will not be set.</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                </Children>
+              </LocaleResource>
+              <LocaleResource Name="SEOTemplate">
+                <Value>SEO Templates</Value>
+                <Children>
+                  <LocaleResource Name="CategoryTitleSEOTemplate">
+                    <Value>
+                      Category Title SEO Template
+                    </Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>
+                          Category Title SEO Templates
+                        </Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="CategoryDescriptionSEOTemplate">
+                    <Value>
+                      Category Description SEO Template
+                    </Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>
+                          Category Description SEO Templates
+                        </Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="AppendProductsToKeywordsForCategories">
+                    <Value>
+                      Append Products to Keywords for Category Pages
+                    </Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>
+                          Append Products to Keywords for Category Pages
+                        </Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="PrefixProductKeywordsForCategoriesWithManufacturerName">
+                    <Value>
+                      Prefix Product Keywords with Manufacturer Name
+                    </Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>
+                          Prefix Product Keywords with Manufacturer Name
+                        </Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="CategoryKeywordsSEOTemplate">
+                    <Value>
+                      Category Keywords SEO Template
+                    </Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>
+                          Category Keywords SEO Template
+                        </Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="CategoryKeywordsSEOTemplateRegex">
+                    <Value>
+                      Category Keywords SEO Template Regex
+                    </Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>
+                          Category Keywords SEO Template Regex
+                        </Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="AvailableCategoryTokens">
+                    <Value>
+                      Available Category Tokens:
+                    </Value>
+                  </LocaleResource>
+                  <LocaleResource Name="ProductTitleSEOTemplate">
+                    <Value>
+                      Product Title SEO Template
+                    </Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>
+                          Product Title SEO Template
+                        </Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="ProductDescriptionSEOTemplate">
+                    <Value>
+                      Product Description SEO Template
+                    </Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>
+                          Product Description SEO Template
+                        </Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="ProductKeywordsSEOTemplate">
+                    <Value>
+                      Product Keywords SEO Template
+                    </Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>
+                          Product Keywords SEO Template
+                        </Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="ProductKeywordsSEOTemplateRegex">
+                    <Value>
+                      Product Keywords SEO Template Regex
+                    </Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>
+                          Product Keywords SEO Template Regex
+                        </Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="AvailableProductTokens">
+                    <Value>
+                      Available Product Tokens:
+                    </Value>
+                  </LocaleResource>
+                  <LocaleResource Name="ManufacturerTitleSEOTemplate">
+                    <Value>
+                      Manufacturer Title SEO Template
+                    </Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>
+                          Manufacturer Title SEO Templates
+                        </Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="ManufacturerDescriptionSEOTemplate">
+                    <Value>
+                      Manufacturer Description SEO Template
+                    </Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>
+                          Manufacturer Description SEO Templates
+                        </Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="AppendProductsToKeywordsForManufacturers">
+                    <Value>
+                      Append Products to Keywords for Manufacturer Pages
+                    </Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>
+                          Append Products to Keywords for Manufacturer Pages
+                        </Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="PrefixProductKeywordsForManufacturersWithManufacturerName">
+                    <Value>
+                      Prefix Product Keywords with Manufacturer Name
+                    </Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>
+                          Prefix Product Keywords with Manufacturer Name
+                        </Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="ManufacturerKeywordsSEOTemplate">
+                    <Value>
+                      Manufacturer Keywords SEO Template
+                    </Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>
+                          Manufacturer Keywords SEO Template
+                        </Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="ManufacturerKeywordsSEOTemplateRegex">
+                    <Value>
+                      Manufacturer Keywords SEO Template Regex
+                    </Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>
+                          Manufacturer Keywords SEO Template Regex
+                        </Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="Active">
+                    <Value>
+                      Active
+                    </Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>
+                          Active
+                        </Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="Global">
+                    <Value>
+                      Global
+                    </Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>
+                          Global
+                        </Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="AvailableManufacturerTokens">
+                    <Value>
+                      Available Manufacturer Tokens:
+                    </Value>
+                  </LocaleResource>
+                  <LocaleResource Name="Notifications">
+                    <Children>
+                      <LocaleResource Name="SEOTemplateEdited">
+                        <Value>Seo Template successfully edited</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                </Children>
+              </LocaleResource>
+            </Children>
+          </LocaleResource>
+        </Children>
+      </LocaleResource>
+    </Children>
+  </LocaleResource>
+</Language>

@@ -1,0 +1,31 @@
+﻿@{
+    Layout = null;
+}
+@using Nop.Core.Infrastructure
+@using Nop.Core;
+@{
+    var storeUrl = EngineContext.Current.Resolve<IWebHelper>().GetStoreLocation();
+}
+@if (Model.DisplayCategoryBreadcrumb)
+{
+    <div class="breadcrumb">
+        <a href='@storeUrl'>@T("Categories.Breadcrumb.Top")</a> |
+        @for (int i = 0; i < Model.CategoryBreadcrumb.Count; i++)
+        {
+            var catBr = Model.CategoryBreadcrumb[i];
+            <a href="@Url.RouteUrl("Category", new { SeName = catBr.SeName })">@catBr.Name</a>
+            if (i != Model.CategoryBreadcrumb.Count - 1)
+            {
+            <text>|</text>
+            }
+        }
+        @if (Model.Product != null)
+        {
+            <text>|</text>
+            <span class="breadcrumbProduct">@Model.Product.DisplayName</span>
+        }
+        <br />
+    </div>
+    <div class="clear">
+    </div>
+}

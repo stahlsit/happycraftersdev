@@ -1,0 +1,96 @@
+/*
+* Copyright 2012 Seven Spikes Ltd. All rights reserved. (http://www.nop-templates.com)
+* http://www.nop-templates.com/t/licensinginfo
+*/
+
+.priceRangeFilterPanel7Spikes .filtersGroupPanel
+{
+    background: url("images/bg_sidebar_block.gif") no-repeat scroll left bottom #404040;
+    font-size: 11px;
+    margin: 0;
+    padding: 5px 10px 10px;
+	overflow: hidden;
+}
+
+.priceRangeFilterPanel7Spikes .ui-slider
+{
+    background: #555555;
+    height: 4px;
+    position: relative;
+    width: 158px;
+	margin-bottom: 10px; 
+}
+
+.priceRangeFilterPanel7Spikes .priceRangeMinMaxPanel
+{
+    color: #FFFFFF;
+    height: 30px;
+    width: 160px;
+	overflow: hidden;
+}
+
+.priceRangeMinPanel
+{
+    float: left;
+}
+
+.priceRangeMaxPanel
+{
+    float: right;
+}
+
+.nopAjaxFilters7Spikes .block .title a.clearPriceRangeFilter
+{
+    float: right;
+    color: #FF9933;
+    text-transform: none;
+    cursor: pointer;
+}
+
+.nopAjaxFilters7Spikes .block .title a.clearPriceRangeFilter:hover
+{
+    text-decoration: underline;   
+}
+
+.ui-widget-content {
+    border: 1px solid #888 !important;
+}
+
+.ui-slider-range {
+    background: none repeat scroll 0 0 #666;
+    height: 4px;
+    padding: 0;
+    position: absolute;
+}
+
+.ui-slider-handle {
+    background: none repeat scroll 0 0 #FF9933;
+    height: 10px;
+    position: absolute;
+    top: -5px !important;
+    width: 5px;
+}
+
+.priceRangeFilterPanel7Spikes .ui-state-default, .priceRangeFilterPanel7Spikes .ui-widget-content .ui-state-default, .priceRangeFilterPanel7Spikes .ui-widget-header .ui-state-default {
+    background: url("images/scale_knob.png") top no-repeat !important;
+	border: none !important;
+}
+.ui-state-default:hover, .ui-widget-content .ui-state-default:hover, .ui-widget-header .ui-state-default:hover {
+	background-position: bottom !important;
+}
+
+.priceRangeFilterPanel7Spikes .priceRangeCurrentPricesPanel
+{
+    color: #f93;
+    width: 160px;
+}
+
+.priceRangeCurrentPricesPanel .currentMinPrice
+{
+    float: left;
+}
+
+.priceRangeCurrentPricesPanel .currentMaxPrice
+{
+    float: right;
+}

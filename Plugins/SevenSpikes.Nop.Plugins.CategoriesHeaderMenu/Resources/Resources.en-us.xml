@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Language Name="English">
+  <LocaleResource Name="SevenSpikes">
+    <Value>SevenSpikes</Value>
+    <Children>
+      <LocaleResource Name="CategoriesHeaderMenu">
+        <Value>Nop Categories Header Menu</Value>
+        <Children>
+          <LocaleResource Name="Admin">
+            <Value>Admin</Value>
+            <Children>
+              <LocaleResource Name="Settings">
+                <Value>Settings</Value>
+                <Children>
+                  <LocaleResource Name="Common">
+                    <Value>Nop Categories Header Menu Settings</Value>                   
+                  </LocaleResource>
+                  <LocaleResource Name="ShowHomePageTopLevelCategoriesOnly">
+                    <Value>Display only top level categories, which are marked as 'Show on home page'</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>If enabled then only top level categories will be shown in the menu based on their 'Show on home' page property being set to True.</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="ShowManufacturers">
+                    <Value>Show Manufacturers</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>If enabled a manufacturers menu is going to be shown in the Header Menu.</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                </Children>
+              </LocaleResource>
+              <LocaleResource Name="ClickToConfigure">
+                <Value>To configure the plugin either click HERE or go to Plugins -> Nop Categories Header Menu -> Settings</Value>
+              </LocaleResource>
+            </Children>
+          </LocaleResource>
+        </Children>
+      </LocaleResource>
+    </Children>
+  </LocaleResource>
+</Language>

@@ -1,0 +1,109 @@
+﻿/*
+* Copyright 2012 Seven Spikes Ltd. All rights reserved. (http://www.nop-templates.com)
+* http://www.nop-templates.com/t/licensinginfo
+*/
+
+.instant-search-item
+{
+    height: auto;
+    overflow: hidden;
+    width: 100%;
+    cursor: pointer;
+}
+
+.instant-search-item .img-block
+{
+    width: 70px;
+    height: 70px;
+    float: left;
+    background-color:White;
+}
+
+.instant-search-item .img-block .image
+{
+    text-align: center;
+    padding: 0;
+}
+
+.instant-search-item .detail
+{
+    margin: 0 10px 0 80px;
+    padding: 0;
+}
+
+.instant-search-item .detail .title
+{
+    text-align: left;
+    font-size: 1.2em;
+    padding-bottom: .25em;
+    color:#7692B9;
+}
+
+.instant-search-item .detail .price
+{
+    color: #690;
+    text-align:left;
+}
+
+.instant-search-busy
+{
+    background: url('images/ajax-loader-small.gif') no-repeat 100%;
+}
+
+/* KendoUI ajustments */ 
+
+.k-widget.search-box-text {
+	width: auto !important;
+	background: #fff !important;
+	margin: 0 !important;
+	padding: 0px !important;
+	border: none !important;
+	border-radius: 3px !important;
+	box-shadow: none !important;
+}
+
+.search-box-text .k-input {
+	float:left !important;
+	width:220px !important;
+	height:14px !important;
+	padding:2px !important;
+	font:normal 11px Tahoma, Geneva, sans-serif !important;
+	color:#999 !important;
+	border:1px solid #777 !important;
+	border-radius:2px !important;
+	box-shadow:0 0 3px #999 inset !important;
+}
+
+.k-list > .k-state-focused
+{
+    background-color: #A99F9A;
+    border-color: #A99F9A;
+}
+
+.k-header, .k-grid-header, .k-toolbar, .k-grouping-header, .k-tooltip, .k-pager-wrap, .k-button, .k-draghandle {
+    background-color: #fff !important;
+}
+
+.k-list-container {
+    background-color: #7692B9 !important;
+	margin: 5px 0 0 0 !important;
+	padding: 10px !important;
+	border: none !important;
+	border-radius:2px !important;
+	box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.3) !important;
+	width: 250px !important;
+}
+
+.k-item {
+	background: #fff !important;
+	margin-bottom: 1px !important;
+	padding: 5px !important;
+	border-radius: 0 !important;
+	border: none !important;
+}
+
+.k-sate-default, .k-state-hover, k-state-selected, .k-state-focused, k-state-active {
+	background: #eee !important;
+	padding: 5px !important;
+	border: none !important;
+}

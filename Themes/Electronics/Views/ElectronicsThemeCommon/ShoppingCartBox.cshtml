@@ -1,0 +1,19 @@
+﻿<div class="block-mini-cart">
+    <strong>@T("SevenSpikes.Themes.Electronics.HeaderShoppingCartBox")</strong>
+    <br />
+    @if (Model.ItemsCount == 0)
+    {
+        <div>@T("SevenSpikes.Themes.Electronics.HeaderShoppingCartBox.NoItems")</div>
+    }
+    else
+    {
+        if (Model.ItemsCount == 1)
+        {
+        <a href="@Url.RouteUrl("ShoppingCart")">@T("SevenSpikes.Themes.Electronics.HeaderShoppingCartBox.OneItemText")</a>
+        }
+        else
+        {
+        <a href="@Url.RouteUrl("ShoppingCart")">@T("SevenSpikes.Themes.Electronics.HeaderShoppingCartBox.SeveralItemsText", @Model.ItemsCount)</a>
+        }
+    }
+</div>

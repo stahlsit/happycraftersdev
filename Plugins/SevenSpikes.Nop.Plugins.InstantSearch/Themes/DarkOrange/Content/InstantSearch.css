@@ -1,0 +1,104 @@
+﻿/*
+* Copyright 2012 Seven Spikes Ltd. All rights reserved. (http://www.nop-templates.com)
+* http://www.nop-templates.com/t/licensinginfo
+*/
+
+.instant-search-item
+{
+    height: auto;
+    overflow: hidden;
+    padding: .5em 0;
+    margin-bottom: .5em;
+    width: 100%;
+    cursor: pointer;
+}
+
+.instant-search-item .img-block
+{
+    width: 70px;
+    height: 70px;
+    float: left;
+    background-color:White;
+}
+
+.instant-search-item .img-block .image
+{
+    text-align: center;
+    padding: 0;
+}
+
+.instant-search-item .detail
+{
+    margin: 0 10px 0 80px;
+    padding: 0;
+}
+
+.instant-search-item .detail .title
+{
+    text-align: left;
+    font-size: 1.2em;
+    padding-bottom: .25em;
+    color:#F93;
+}
+
+.instant-search-item .detail .price
+{
+    color: green;
+    text-align:left;
+}
+
+/* KendoUI ajustments */ 
+
+:-moz-any(input[type="submit"], input[type="button"], input[type="reset"])
+{
+    padding-top: 0em !important;
+}
+
+.k-widget
+{
+	background: none !important;
+	border: 0 !important;
+    padding: 0 !important;
+	box-shadow: none !important;    
+}
+.k-autocomplete, .k-combobox, .k-datepicker, .k-timepicker, .k-datetimepicker, .k-numerictextbox, .k-dropdown, .k-selectbox {
+	width: 220px !important;
+	margin-right: 2px;
+}
+.k-input
+{
+	background: #e9e9e9 !important;
+	border: 0 !important;
+    padding: 1px !important;
+	box-shadow: none !important;
+	border-radius: 0 !important;    
+}
+
+.instant-search-busy
+{
+    background: #e9e9e9 url('images/ajax-loader-small.gif') no-repeat 100% !important;
+}
+
+.k-list-container.k-state-border-up, .k-autocomplete.k-state-border-up, .k-dropdown-wrap.k-state-border-up, .k-picker-wrap.k-state-border-up, .k-numeric-wrap.k-state-border-up {
+	border: 0 !important;
+}
+.k-popup, .k-menu .k-group, .k-grid .k-filter-options, .k-time-popup, .k-datepicker-calendar, .k-autocomplete.k-state-border-down, .k-autocomplete.k-state-border-up, .k-dropdown-wrap.k-state-active, .k-picker-wrap.k-state-active, .k-imagebrowser .k-image {
+    box-shadow: 2px 2px 2px 0 rgba(0, 0, 0, 0.3) !important;
+}
+
+
+
+.k-list-container {
+	border-radius: 0 4px 4px 4px !important;
+	width: 250px !important;
+}
+
+.k-item {
+	margin-bottom: 1px !important;
+}
+
+.k-sate-default, .k-state-hover, k-state-selected, .k-state-focused, k-state-active {
+	background: #f9f9f9 !important;
+}
+
+

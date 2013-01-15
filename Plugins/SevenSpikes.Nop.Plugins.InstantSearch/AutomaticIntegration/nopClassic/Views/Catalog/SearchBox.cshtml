@@ -1,0 +1,31 @@
+﻿@model SearchBoxModel
+@using Nop.Web.Models.Catalog;
+<div class="search-box">
+    @using (Html.BeginRouteForm("ProductSearch", FormMethod.Get, new { onsubmit = "return check_small_search_form()" }))
+    {
+        <ul>
+            <li>
+                <input type="text" class="search-box-text" id="small-searchterms" @(Model.AutoCompleteEnabled ? Html.Raw(" autocomplete=\"off\"") : null)
+                value="@T("Search.SearchBox.Tooltip")" name="q"  onfocus="if(this.value=='@T("Search.SearchBox.Tooltip")')this.value=''" onblur="if(this.value=='') {this.value = '@T("Search.SearchBox.Tooltip")';}" />&nbsp;
+            </li>
+            <li>
+                <input type="submit" class="button-1 search-box-button" value="@T("Search")" />
+            </li>
+        </ul>
+        <script type="text/javascript">
+
+            function check_small_search_form() {
+                var search_terms = $("#small-searchterms");
+                if (search_terms.val() == "") {
+                    alert('@Html.Raw(HttpUtility.JavaScriptStringEncode(T("Search.EnterSearchTerms").Text))');
+                    search_terms.focus();
+                    return false;
+                }
+
+                return true;
+            }
+        </script>
+        @Html.Widget("searchbox")
+    }
+</div>
+@Html.Action("InstantSearch", "InstantSearch")

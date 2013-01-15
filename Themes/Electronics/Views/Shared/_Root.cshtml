@@ -1,0 +1,83 @@
+﻿@using Nop.Core.Infrastructure
+@{
+    Layout = "~/Views/Shared/_Root.Head.cshtml";
+
+    var storeLocation = EngineContext.Current.Resolve<Nop.Core.IWebHelper>().GetStoreLocation();
+}
+@Html.Widget("body_start_html_tag_after")
+@Html.Partial("_Notifications")
+@Html.Action("AdminHeaderLinks", "Common")
+<div class="master-wrapper-page">
+    @Html.Action("JavaScriptDisabledWarning", "Common")
+    <div class="master-wrapper-content">
+        @Html.Partial("_Notifications")
+        <script type="text/javascript">
+            //<![CDATA[
+            //replace the first parameter with "true" to use popup notifications
+            AjaxCart.init(false, '.header-links .cart-qty', '.header-links .wishlist-qty', '#flyout-cart');
+            //]]>
+        </script>
+        <div class="header">
+            <div class="header-logo">
+                <a href="@storeLocation" class="logo">
+                    <img src="@Url.Content("~/Themes/Electronics/Content/images/logo.gif")" alt="" /></a>
+            </div>
+            <div class="header-links-wrapper">
+                @Html.Action("HeaderLinks", "Common")
+                @Html.Action("FlyoutShoppingCart", "ShoppingCart")
+            </div>
+            <div class="header-shopping-bag">
+                @Html.Action("ShoppingCartBox", "ElectronicsThemeCommon")
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        <!--header-->
+        @{
+            var menu = @Html.Widget("theme_header_menu");
+        }
+        @if (MvcHtmlString.IsNullOrEmpty(menu))
+        {
+            <div class="menu">
+                @Html.Action("Menu", "Common")
+            </div>
+        }
+        else
+        { @menu }
+        <div class="top-bar">
+            <div class="header-languageselector">
+                @Html.Action("LanguageSelector", "Common")
+            </div>
+            <div class="header-currencyselector">
+                @Html.Action("CurrencySelector", "Common")
+            </div>
+            <div class="header-taxDisplayTypeSelector">
+                @Html.Action("TaxTypeSelector", "Common")
+            </div>
+            <div class="searchbox">
+                @Html.Action("SearchBox", "Catalog")
+            </div>
+        </div>
+        <!--top-bar-->
+        @Html.Action("CategoryBreadcrumb", "ElectronicsThemeCatalog")
+        @Html.Widget("content_before")
+        @*ajax loading window*@
+        <div class="ajax-loading-block-window" style="display: none">
+            <div class="loading-image">
+            </div>
+        </div>
+        <div class="master-wrapper-main">
+            @RenderBody()
+        </div>
+        @Html.Widget("content_after")
+	
+        @Html.Action("EuCookieLaw", "Common")
+        @Html.Action("InfoBlock", "Common")
+        <div class="footer-storetheme">
+            @Html.Action("StoreThemeSelector", "Common")
+        </div>
+    </div>
+    <!--master-wrapper-content-->
+</div>
+<!--master-wrapper-page-->
+@Html.Widget("body_end_html_tag_before")

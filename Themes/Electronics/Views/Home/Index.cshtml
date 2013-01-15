@@ -1,0 +1,17 @@
+﻿@using Nop.Core.Infrastructure;
+@{
+    Layout = "~/Views/Shared/_ColumnsThree.cshtml";    
+}
+@section MainSlider
+{
+    @Html.Widget("home_page_main_slider")
+}
+
+@Html.Widget("home_page_top")
+
+@Html.Action("TopicBlock", "Topic", new { systemName = "HomePageText" })
+@Html.Action("HomepageCategories", "Catalog")
+@Html.Action("HomepageProducts", "Catalog")
+@Html.Action("HomepageBestSellers", "Catalog")
+@Html.Action("HomePageNews", "News")
+ @Html.Widget("home_page_bottom")

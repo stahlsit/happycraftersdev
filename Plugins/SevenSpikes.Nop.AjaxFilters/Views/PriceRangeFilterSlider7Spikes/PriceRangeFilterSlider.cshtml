@@ -1,0 +1,39 @@
+﻿@** Copyright 2012 Seven Spikes Ltd. All rights reserved. (http://www.nop-templates.com)
+* http://www.nop-templates.com/t/licensinginfo
+*@
+
+@{
+    Html.AddScriptParts("~/Plugins/SevenSpikes.Nop.AjaxFilters/Scripts/PriceRangeFilterSlider.min.js");
+}
+
+@model SevenSpikes.Nop.AjaxFilters.Models.PriceRangeFilterSlider.PriceRangeFilterModel7Spikes
+
+<div class="priceRangeFilterPanel7Spikes" data-currentCurrencySymbol="@Model.CurrencySymbol">
+    <div class="block filter-block">
+        <div class="title">
+            <a class="toggleControl">@T("SevenSpikes.NopAjaxFilters.Client.PriceRangeFilter.Title")</a>
+            <a class="clearPriceRangeFilter">@T("SevenSpikes.NopAjaxFilters.Client.Common.Clear")</a>
+            <div class="clear"></div>
+        </div>
+        <div class="filtersGroupPanel">
+            <div class="priceRangeMinMaxPanel">
+                <span class="priceRangeMinPanel">
+                    <span>@T("SevenSpikes.NopAjaxFilters.Client.PriceRangeFilter.Min"):</span>
+                    <span class="priceRangeMinPrice">@String.Concat(Model.CurrencySymbol, Model.MinPrice.ToString("F0"))</span>
+                </span>
+                <span class="priceRangeMaxPanel">
+                    <span>@T("SevenSpikes.NopAjaxFilters.Client.PriceRangeFilter.Max"):</span>
+                    <span class="priceRangeMaxPrice">@String.Concat(Model.CurrencySymbol, Model.MaxPrice.ToString("F0"))</span>
+                </span>
+            </div>
+            <div id="slider" data-sliderMinValue="@Model.MinPrice" data-sliderMaxValue="@Model.MaxPrice"
+                data-selectedFromValue="@Model.SelectedPriceRange.From" data-selectedToValue="@Model.SelectedPriceRange.To" >
+            </div>
+            <div class="priceRangeCurrentPricesPanel">
+                <span class="currentMinPrice">@String.Concat(Model.CurrencySymbol, Model.SelectedPriceRange.From)</span>
+                <span class="currentMaxPrice">@String.Concat(Model.CurrencySymbol, Model.SelectedPriceRange.To)</span>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>

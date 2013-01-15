@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Language Name="English">
+  <LocaleResource Name="SevenSpikes">
+    <Value></Value>
+    <Children>
+      <LocaleResource Name="NopAjaxCart">
+        <Value>Nop Ajax Cart</Value>
+        <Children>
+          <LocaleResource Name="Admin">
+            <Value>Nop Ajax Cart</Value>
+            <Children>
+              <LocaleResource Name="Settings">
+                <Value>Nop Ajax Cart Settings</Value>
+                <Children>
+                  <LocaleResource Name="EnableOnProductPage">
+                    <Value>Enable Nop Ajax Cart on Product Page</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>Specifies whether the Nop Ajax Cart functionality is enabled on product page.</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="EnableOnCatalogPages">
+                    <Value>Enable Nop Ajax Cart on Catalog Pages</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>Specifies whether the Nop Ajax Cart functionality is enabled on catalog pages such as category, manufacturer, recently viewed, recently added, etc. pages.</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="EnableProductQuantityTextBox">
+                    <Value>Enable Product Quantity Text Box On Catalog Pages</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>Specifies whether the product quantity text box is enabled for products on the category page.</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="EnableOnMultiProductVariants">
+                    <Value>Enable Ajax Cart On Multi Product Variants On Catalog Pages</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>Specifies whether the Ajax Cart should be used for multi product variants on catalog pages.</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="CategoryPageProductsPanelSelector">
+                    <Value>Category Page Products Panel Selector</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>The selector for the html element on the category page, which contains the products. The Nop Ajax Cart plugin uses this element to add dynamic content to it, like modal dialogs and ajax busy animation.</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="ProductDetailsPageProductPanelSelector">
+                    <Value>Product Details Page Product Panel Selector</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>The selector for the html element on the product details page, which contains the product details information. The Nop Ajax Cart plugin uses this element to add dynamic content to it, like modal dialogs and ajax busy animation.</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="ShoppingCartMenuLinkSelector">
+                    <Value>Shopping Cart Menu Link Selector</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>The selector for the html element in the header link, which contains information about the number of items in the shopping cart.</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="MiniShoppingCartPanelSelector">
+                    <Value>Mini Shopping Cart Panel Selector</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>The selector for the mini shopping cart panel. It is used by the Nop Ajax Cart plugin to update the mini shopping cart after a product has been added to the shopping cart.</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="FlyoutCartPanelSelector">
+                    <Value>Flyout Shopping Cart Panel Selector</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>The selector for the flyout shopping cart panel. It is used by the Nop Ajax Cart plugin to update the flyout shopping cart after a product has been added to the shopping cart.</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="ProductAddedToCartImageSize">
+                    <Value>Product Added To Cart Image Size (pixels)</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>Specify the image size of the image displayed on the product added to cart window (in pixels).</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="Theme">
+                    <Value>Theme</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>Select the theme for the Ajax Cart</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="EnableAutomaticIntegration">
+                    <Value>Enable Automatic Integration</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>Enables automatic integration of the Nop Ajax Cart plugin.</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                </Children>
+              </LocaleResource>
+            </Children>
+          </LocaleResource>
+          <LocaleResource Name="ShoppingCartNotificationBoxQuantity">
+            <Value>Quantity</Value>
+          </LocaleResource>
+          <LocaleResource Name="ShoppingCartNotificationBoxContinueShopping">
+            <Value>CONTINUE SHOPPING</Value>
+          </LocaleResource>
+          <LocaleResource Name="ShoppingCartNotificationBoxViewYourBasket">
+            <Value>VIEW YOUR BASKET</Value>
+          </LocaleResource>
+          <LocaleResource Name="ShoppingCartNotificationBoxTitle">
+            <Value>Just Added To Your Basket</Value>
+          </LocaleResource>
+        </Children>
+      </LocaleResource>
+    </Children>
+  </LocaleResource>
+</Language>

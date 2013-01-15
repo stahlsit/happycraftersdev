@@ -1,0 +1,8 @@
+Group: 7Spikes
+FriendlyName: Nop Electronics Theme
+SystemName: SevenSpikes.Theme.Electronics
+Version: 2.80
+SupportedVersions: 2.80
+Author: Seven Spikes
+DisplayOrder: 2
+FileName: SevenSpikes.Theme.Electronics.dll

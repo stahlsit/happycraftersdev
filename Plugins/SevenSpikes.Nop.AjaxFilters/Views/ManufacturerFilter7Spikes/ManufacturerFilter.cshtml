@@ -1,0 +1,80 @@
+﻿@** Copyright 2012 Seven Spikes Ltd. All rights reserved. (http://www.nop-templates.com)
+* http://www.nop-templates.com/t/licensinginfo
+*@
+
+@{
+    Html.AddScriptParts("~/Plugins/SevenSpikes.Nop.AjaxFilters/Scripts/ManufacturerFilter.min.js");
+}
+
+@model ManufacturerFilterModel7Spikes
+           
+@using SevenSpikes.Nop.AjaxFilters.Models.ManufacturerFilter;
+@using SevenSpikes.Nop.AjaxFilters.Common;
+@using SevenSpikes.Nop.AjaxFilters.Domain;
+
+@if(Model.NopAjaxFiltersSettings.FiltersUIMode == FiltersUIMode.UseDropdowns)
+{   
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $("#manufacturerFiltersDropDown").jDropDown();
+        })
+
+    </script>
+}
+
+<div class="manufacturerFilterPanel7Spikes">
+    @{
+        Func<int, HelperResult> manufacturerOptionsHtml =
+            @<text>
+                 @foreach (ManufacturerFilterItem manufacturerFilterItem in Model.ManufacturerFilterItems)
+                 {
+                     string filterItemCssClass = "filterItemUnselected";
+
+                     if (manufacturerFilterItem.FilterItemState == FilterItemState.Checked)
+                     {
+                         filterItemCssClass = "filterItemSelected";
+                     }
+                    
+                    <li><a class="@filterItemCssClass" data-option-id="@manufacturerFilterItem.Id">@manufacturerFilterItem.Name</a>
+                    </li>
+                 }
+            </text>;
+    }
+
+    <div class="block filter-block">
+        <div class="title">
+            <a class="toggleControl">@T("Manufacturers")</a>
+            <a class="clearFilterOptions">@T("SevenSpikes.NopAjaxFilters.Client.Common.Clear")</a>
+           <div class="clear"></div>
+        </div>
+        <div class="clear">
+        </div>
+        @if (Model.NopAjaxFiltersSettings.FiltersUIMode == FiltersUIMode.UseCheckboxes)
+        {
+            <div class="filtersGroupPanel">
+                <ul>
+                    @manufacturerOptionsHtml(0)
+                </ul>
+            </div>
+        }
+        else if (Model.NopAjaxFiltersSettings.FiltersUIMode == FiltersUIMode.UseDropdowns)
+        {
+            <div class="filtersGroupPanel filtersDropDownPanel" style="z-index: 6;">
+                <div id="manufacturerFiltersDropDown" class="filtersDropDown">
+                    <div>
+                        <p></p>
+                    </div>
+                    <ul>
+                        <li class="selected">
+                            <a class="allFilterDropDownOptions">@T("SevenSpikes.NopAjaxFilters.Client.Common.All")</a>
+                        </li>
+                        @manufacturerOptionsHtml(0)
+                    </ul>
+                </div>
+		<div class="clear"></div>
+            </div>
+        }
+    </div>
+</div>

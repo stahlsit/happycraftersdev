@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Language Name="English">
+  <LocaleResource Name="ActivityLog">
+  <Value>Activity Log</Value>
+  <Children>
+    <LocaleResource Name="EditCloudZoomSettings">
+      <Value>Cloud Zoom settings has been edited.</Value>
+    </LocaleResource>
+  </Children>
+  </LocaleResource>
+  <LocaleResource Name="SevenSpikes">
+    <Value>SevenSpikes</Value>
+    <Children>
+      <LocaleResource Name="CloudZoom">
+        <Value>Nop Cloud Zoom</Value>
+        <Children>
+          <LocaleResource Name="Admin">
+            <Value>Admin</Value>
+            <Children>
+              <LocaleResource Name="Settings">
+                <Value>Settings</Value>
+                <Children>
+                  <LocaleResource Name="Common">
+                    <Value>Nop Cloud Zoom Settings</Value>
+                  </LocaleResource>
+                  <LocaleResource Name="EnableAutomaticIntegration">
+                    <Value>Enable Automatic Integration</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>Enable Automatic integration only for evaluation purposes. In production we recommend to use Manual integration. Please refer to the plugin documentation.</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="Enable">
+                    <Value>Enable Cloud Zoom</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>Set to enable the Cloud Zoom plugin.</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="EnableClickToZoom">
+                    <Value>Enable Default Zoom On Click</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>Set to enable the default zoom when you click on the main image.</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="ZoomPosition">
+                    <Value>Zoom Type (position)</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>Specifies the position of the zoom window relative to the small image. Allowable values are 'left', 'right', 'top', 'bottom', 'inside' (for inner zoom) or you can specifiy the id of an html element to place the zoom window in e.g. 'element1'</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="ZoomWidth">
+                    <Value>Width of the zoom window (pixels)</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>Set the width of the zoom window (pixels).</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="ZoomHeight">
+                    <Value>Height of the zoom window (pixels)</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>Set the height of the zoom window (pixels).</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="AdjustX">
+                    <Value>X-positon of the zoom window (horizontal) (pixels)</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>Allows you to fine tune the x-position of the zoom window in pixels.</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="AdjustY">
+                    <Value>Y-positon of the zoom window (vertical) (pixels)</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>Allows you to fine tune the y-position of the zoom window in pixels.</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="EnableTint">
+                    <Value>Enable Tint</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>Enables the Tint property, which allows you to specifify a tint colour which will cover the small image. DOES NOT WORK WITH SOFT FOCUS!!!</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="TintColor">
+                    <Value>Tint Color</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>Specifies a tint colour which will cover the small image. Colours should be specified in hex format, e.g. '#aa00aa'.</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="TintOpacity">
+                    <Value>Tint Opacity</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>Opacity of the tint, where 0 is fully transparent, and 1 is fully opaque.</Value>
+                      </LocaleResource>
+                      <LocaleResource Name="Range">
+                        <Value>Value must be between 0 - 1</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="LensOpacity">
+                    <Value>Lens Opacity</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>Opacity of the lens mouse pointer, where 0 is fully transparent, and 1 is fully opaque. In tint and soft-focus modes, it will always be transparent.</Value>
+                      </LocaleResource>
+                      <LocaleResource Name="Range">
+                        <Value>Value must be between 0 - 1</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="SoftFocus">
+                    <Value>Soft Focus</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>Applies a subtle blur effect to the small image. Set to true or false. DOES NOT WORK WITH TINT!!!</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="SmoothMove">
+                    <Value>Smooth Move</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>Amount of smoothness/drift of the zoom image as it moves. The higher the number, the smoother/more drifty the movement will be. 1 = no smoothing.</Value>
+                      </LocaleResource>
+                      <LocaleResource Name="Range">
+                        <Value>Value must be between 1 - 1000</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="ShowTitle">
+                    <Value>Show Title</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>Shows the title tag of the image.</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="TitleOpacity">
+                    <Value>Title Opacity</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>Specifies the opacity of the title if displayed, where 0 is fully transparent, and 1 is fully opaque.</Value>
+                      </LocaleResource>
+                      <LocaleResource Name="Range">
+                        <Value>Value must be between 0 - 1</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="ElementId">
+                    <Value>Element ID</Value>
+                    <Children>
+                      <LocaleResource Name="Hint">
+                        <Value>The ID of the element, that is going to contain the Cloud Zoom window.</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                </Children>
+              </LocaleResource>
+            </Children>
+          </LocaleResource>
+        </Children>
+      </LocaleResource>
+    </Children>
+  </LocaleResource>
+</Language>

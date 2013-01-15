@@ -1,0 +1,61 @@
+﻿@model Nop.Web.Models.Catalog.ProductOverviewModel
+@using Nop.Core.Infrastructure;
+@{
+    var electronicsThemeSettings = EngineContext.Current.Resolve<SevenSpikes.Theme.Electronics.Domain.ElectronicsThemePluginsIntegrationSettings>();
+    var ajaxCartIntegrated = electronicsThemeSettings.IntegrateNopAjaxCart;
+
+    MvcHtmlString addProductToCartAjaxButtonHtml = MvcHtmlString.Empty;
+    if(ajaxCartIntegrated && !Model.ProductPrice.DisableBuyButton)
+    {
+        addProductToCartAjaxButtonHtml = Html.Action("GetAddProductToCartAjaxButton", "NopAjaxCart", new { ProductId = Model.Id, ButtonValue = Model.ProductPrice.AvailableForPreOrder ? T("ShoppingCart.PreOrder") : T("ShoppingCart.AddToCart") });
+    }
+
+    //prepare "Add to cart" AJAX link
+    string addtocartlink = "";
+    if (Model.ProductPrice.ForceRedirectionAfterAddingToCart)
+    {
+        addtocartlink = Url.RouteUrl("AddProductToCart", new { productId = Model.Id, forceredirection = Model.ProductPrice.ForceRedirectionAfterAddingToCart });
+    }
+    else
+    {
+        addtocartlink = Url.RouteUrl("AddProductToCart", new { productId = Model.Id });
+    }    
+}
+<div class="item" data-productid="@Model.Id">
+    <div class="picture">
+        <a href="@Url.RouteUrl("Product", new { SeName = Model.SeName })" title="@Model.DefaultPictureModel.Title">
+            <img alt="@Model.DefaultPictureModel.AlternateText" src="@Model.DefaultPictureModel.ImageUrl"
+                                                        title="@Model.DefaultPictureModel.Title" /></a>
+    </div>
+    <div class="product-title">
+        <a href="@Url.RouteUrl("Product", new { SeName = Model.SeName })" title="@Model.DefaultPictureModel.Title">
+            @Model.Name</a>
+    </div>
+    	<div class="shortdescription">
+            @Model.ShortDescription
+        </div>
+    <div class="prices">
+        @if (!String.IsNullOrEmpty(Model.ProductPrice.OldPrice))
+        {
+            <span class="old-product-price">@Model.ProductPrice.OldPrice</span>
+            <br />
+        }
+        <span class="product-price">@Model.ProductPrice.Price</span>
+    </div>
+    <div class="buttons-centered">
+        @if (!Model.ProductPrice.DisableBuyButton)
+        {
+            if (!MvcHtmlString.IsNullOrEmpty(addProductToCartAjaxButtonHtml))
+            {
+                @addProductToCartAjaxButtonHtml
+            }
+            else
+            {
+            <input type="button" value="@(Model.ProductPrice.AvailableForPreOrder ? T("ShoppingCart.PreOrder") : T("ShoppingCart.AddToCart"))" class="productlistaddtocartbutton" onclick="AjaxCart.addproducttocart('@addtocartlink');return false;" />
+            }
+        }
+
+        @Html.Widget("productbox_add_info")
+        
+    </div>
+</div>

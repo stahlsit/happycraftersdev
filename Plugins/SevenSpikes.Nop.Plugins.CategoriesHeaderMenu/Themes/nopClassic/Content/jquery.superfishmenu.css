@@ -1,0 +1,106 @@
+﻿/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+
+    CATEGORIES HEADER MENU
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+/* Special styling when using the Menu as a widget, so that it is placed nicely below the Heade Menu */
+
+
+.categoriesHeaderMenu
+{
+	position: relative;
+	z-index: 1000;
+    height: 30px;
+	clear: both;
+    margin: 0 5px 10px;
+    background-color: #bdf;
+}
+
+.sf-menu
+{
+    height: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.sf-menu *
+{
+    margin: 0;
+    padding: 0;
+    list-style: none; 
+}
+
+.sf-menu > li
+{
+    position: relative;
+    float: left;
+}
+
+.sf-menu > li:hover {
+	background-color: #9bd;
+}
+
+.sf-menu > li > a
+{
+    display: block;
+    padding: 0 15px;
+    font-size: 11px;
+    color: #47a;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 30px;
+}
+
+.sf-menu li:hover a
+{
+	 color: #fff;
+}
+
+.sf-menu ul
+{
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: 0;
+    z-index: 100;
+    width: 180px;
+    background-color: #9bd;
+	padding-bottom: 1px;
+}
+
+.sf-menu ul li
+{
+	position: relative;
+	border-right: 1px solid #a6c6e6;
+}
+
+.sf-menu ul a
+{
+    display: block;
+    padding:  5px 15px;
+    font-size: 11px;
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+	border-top: 1px dotted #a6c6e6;
+}
+
+.sf-menu ul a:hover 
+{
+	background-color: #a6c6e6;
+}
+
+.sf-menu ul ul 
+{
+    top: 0;
+    left: 180px;
+}
+
+.sf-menu li:hover > ul
+{
+    display: block;
+}
+

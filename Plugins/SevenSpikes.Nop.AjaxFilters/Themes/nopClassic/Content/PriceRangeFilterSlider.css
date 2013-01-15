@@ -1,0 +1,97 @@
+/*
+* Copyright 2012 Seven Spikes Ltd. All rights reserved. (http://www.nop-templates.com)
+* http://www.nop-templates.com/t/licensinginfo
+*/
+
+.priceRangeFilterPanel7Spikes .filtersGroupPanel
+{
+    background: #fff;
+    font-size: 11px;
+    margin: 0;
+    padding: 5px 10px 10px;
+	overflow: hidden;
+}
+
+.priceRangeFilterPanel7Spikes .ui-slider
+{
+    background: #fff;
+    height: 4px;
+    position: relative;
+    width: 158px;
+	margin-bottom: 10px; 
+}
+
+.priceRangeFilterPanel7Spikes .priceRangeMinMaxPanel
+{
+    color: #3664A5;
+    height: 30px;
+    width: 160px;
+	overflow: hidden;
+}
+
+.priceRangeMinPanel
+{
+    float: left;
+}
+
+.priceRangeMaxPanel
+{
+    float: right;
+}
+
+.nopAjaxFilters7Spikes .block .title a.clearPriceRangeFilter
+{
+    float: right;
+    color: #fff;
+	font-weight: normal;
+    text-transform: lowercase;
+	text-shadow: none;
+    cursor: pointer;
+}
+
+.nopAjaxFilters7Spikes .block .title a.clearPriceRangeFilter:hover
+{
+    text-decoration: underline;   
+}
+
+.ui-widget-content {
+    border: 1px solid #abc !important;
+}
+
+.ui-slider-range {
+    background: none repeat scroll 0 0 #bdf;
+    height: 4px;
+    padding: 0;
+    position: absolute;
+	border: none !important;
+}
+
+.ui-slider-handle {
+    width: 15px !important;
+	height: 14px !important;
+    position: absolute;
+    top: -6px !important;
+}
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	border: 1px solid #d3d3d3 !important;
+}
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover {
+	border: 1px solid #ccc !important;
+}
+
+.priceRangeFilterPanel7Spikes .priceRangeCurrentPricesPanel
+{
+    color: #3664A5;
+    width: 160px;
+}
+
+.priceRangeCurrentPricesPanel .currentMinPrice
+{
+    float: left;
+}
+
+.priceRangeCurrentPricesPanel .currentMaxPrice
+{
+    float: right;
+}

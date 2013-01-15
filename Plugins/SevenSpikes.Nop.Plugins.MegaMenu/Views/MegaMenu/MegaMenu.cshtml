@@ -1,0 +1,62 @@
+﻿@** Copyright 2012 Seven Spikes Ltd. All rights reserved. (http://www.nop-templates.com)
+* http://www.nop-templates.com/t/licensinginfo
+*@
+
+@model SevenSpikes.Nop.Plugins.MegaMenu.Models.MegaMenuModel
+@{
+    Html.AppendCssFileParts("~/Plugins/SevenSpikes.Nop.Plugins.MegaMenu/Themes/" + Model.Theme + "/Content/style.css"); 
+}
+<div class="mega-menu-holder">
+    <ul class="mega-menu">
+        @if (Model.Settings.IncludeHomePageLink)
+        {
+            <li>
+                <a href="@Url.RouteUrl("HomePage")">@T("HomePage")</a>
+            </li>
+        }
+        @if (Model.Settings.EnableCategories)
+        {
+            @Html.Raw(Model.CategoriesHtml)
+        }
+        @if (Model.Settings.EnableMegaMenuTopic)
+        {
+            <li>
+                @Html.Action("TopicBlock", "MegaMenu", new { systemName = "MegaMenuTopic" })
+            </li>
+        }
+        @if (Model.Settings.EnableManufacturers)
+        {
+            @Html.Raw(Model.ManufacturersHtml)
+        }
+        @if (Model.Settings.IncludeMyAccountLink)
+        {
+            <li>
+                <a href="@Url.RouteUrl("CustomerInfo")">@T("Account.MyAccount")</a>
+            </li>
+        }
+        @if (Model.Settings.IncludeBlogLink)
+        {
+            <li>
+                <a href="@Url.RouteUrl("Blog")">@T("Blog")</a>
+            </li>
+        }
+        @if (Model.Settings.IncludeForumLink)
+        {
+            <li>
+                <a href="@Url.RouteUrl("Boards")">@T("Forum.Forums")</a>
+            </li>
+        }
+        @if (Model.Settings.IncludeAboutUsLink)
+        {
+            <li>
+                @Html.Action("TopicBlock", "MegaMenu", new { systemName = "AboutUs" })
+            </li>
+        }
+        @if (Model.Settings.IncludeContactUsLink)
+        {
+            <li>
+                <a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a>
+            </li>
+        }
+    </ul>
+</div>

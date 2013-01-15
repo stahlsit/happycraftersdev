@@ -1,0 +1,36 @@
+﻿@** Copyright 2012 Seven Spikes Ltd. All rights reserved. (http://www.nop-templates.com)
+* http://www.nop-templates.com/t/licensinginfo
+*@
+
+@{
+    Html.AppendCssFileParts("~/Plugins/SevenSpikes.Core/Styles/kendo.common.min.css");
+    Html.AppendCssFileParts("~/Plugins/SevenSpikes.Core/Styles/kendo.default.min.css");
+    Html.AppendCssFileParts("~/Plugins/SevenSpikes.Nop.Plugins.AjaxCart/Themes/" + Model.NopAjaxCartSettingsModel.Theme + "/Content/styles.css");
+    
+    Html.AppendScriptParts("~/Plugins/SevenSpikes.Nop.Plugins.AjaxCart/Scripts/AjaxCart.min.js");
+    Html.AppendScriptParts("~/Plugins/SevenSpikes.Core/Scripts/kendo.all.min.js");
+    Html.AppendScriptParts("~/Plugins/SevenSpikes.Nop.Plugins.AjaxCart/Scripts/jquery.json-2.2.min.js");
+}
+
+@model SevenSpikes.Nop.Plugins.AjaxCart.Models.AddProductToCartAjaxButtonModel
+
+@if (Model.NopAjaxCartSettingsModel.EnableProductQuantityTextBox)
+{
+    <input id="@String.Concat("productQuantity", @Model.ProductId)" type="text" class="productQuantityTextBox" value="1" />
+}
+
+<input type="button" value="@Model.ButtonValue" class="nopAjaxCartProductListAddToCartButton" data-productId="@Model.ProductId"/>
+
+@if (Model.ShouldAddSettings)
+{
+    @Html.Hidden("addProductVariantToCartUrl", Url.Action("AddProductVariantToCartAjax", "NopAjaxCartShoppingCart"))
+    @Html.Hidden("addProductToCartUrl", Url.Action("AddProductToCartAjax", "NopAjaxCartShoppingCart"))
+    @Html.Hidden("miniShoppingCartUrl", Url.Action("MiniShoppingCart", "NopAjaxCartShoppingCart"))
+    @Html.Hidden("flyoutShoppingCartUrl", Url.Action("NopAjaxCartFlyoutShoppingCart", "NopAjaxCartShoppingCart"))
+    @Html.Hidden("checkProductAttributesUrl", Url.Action("CheckIfProductHasAttributesForDefaultProductVariant", "NopAjaxCartCatalog"))
+    @Html.Hidden("getMiniProductDetailsViewUrl", Url.Action("GetMiniProductDetailsView", "NopAjaxCartCatalog"))
+    @Html.Hidden("miniShoppingCartPanelSelector", Html.Encode(Model.NopAjaxCartSettingsModel.MiniShoppingCartPanelSelector))
+    @Html.Hidden("flyoutShoppingCartPanelSelector", Html.Encode(Model.NopAjaxCartSettingsModel.FlyoutCartPanelSelector))
+    @Html.Hidden("categoryPageProductsPanelSelector", Html.Encode(Model.NopAjaxCartSettingsModel.CategoryPageProductsPanelSelector))
+    @Html.Hidden("shoppingCartMenuLinkSelector", Html.Encode(Model.NopAjaxCartSettingsModel.ShoppingCartMenuLinkSelector))
+}

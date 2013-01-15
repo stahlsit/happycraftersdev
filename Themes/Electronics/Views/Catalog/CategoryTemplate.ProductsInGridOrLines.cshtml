@@ -1,0 +1,183 @@
+﻿@model CategoryModel
+@using Nop.Core;
+@using Nop.Core.Domain.Common;
+@using Nop.Core.Domain.Seo;
+@using Nop.Core.Infrastructure;
+@using Nop.Web;
+@using Nop.Web.Framework.UI;
+@using SevenSpikes.Nop.Framework.MVCExtensions;
+@using Nop.Web.Models.Catalog;
+@using Nop.Web.Extensions;
+@using Nop.Services.Configuration;
+@{
+    Layout = "~/Views/Shared/_ColumnsThree.cshtml";
+    Html.AddTitleParts(!String.IsNullOrEmpty(Model.MetaTitle) ? Model.MetaTitle : Model.Name);
+    Html.AddMetaDescriptionParts(Model.MetaDescription);
+    Html.AddMetaKeywordParts(Model.MetaKeywords);
+
+    var canonicalUrlsEnabled = EngineContext.Current.Resolve<SeoSettings>().CanonicalUrlsEnabled;
+    if (canonicalUrlsEnabled)
+    {
+        var categoryUrl = Url.RouteUrl("Category", new { SeName = Model.SeName }, this.Request.Url.Scheme);
+        Html.AddCanonicalUrlParts(categoryUrl);
+    }
+
+    var categoryNavigationEnabled = EngineContext.Current.Resolve<SevenSpikes.Theme.Electronics.Domain.ElectronicsThemeSettings>().DefaultCategoryNavigationEnabled;
+}
+@{
+    var storeUrl = EngineContext.Current.Resolve<IWebHelper>().GetStoreLocation();
+}
+<div class="category-page">
+
+    @Html.Widget("categorydetails_top")
+
+    <div class="page-title category-title">
+        <h1>
+            @Model.Name
+        </h1>
+    </div>
+
+    @*description*@
+    @if (!String.IsNullOrEmpty(Model.Description))
+    {
+        <div class="category-description-7Spikes">
+            @Html.Raw(Model.Description)
+        </div>
+    }
+
+    @Html.Widget("categorydetails_before_subcategories")
+
+    @*subcategories*@
+    @if (Model.SubCategories.Count > 0)
+    {
+        <div class="sub-category-grid">
+            <!--grid-header-->
+            @(Html.DataList7Spikes<CategoryModel.SubCategoryModel>(Model.SubCategories, 3,
+            @<div class="item-box">
+                <div class="sub-category-item">
+                    <h2 class="category-title">
+                        <a href="@Url.RouteUrl("Category", new { SeName = item.SeName })" title="@item.PictureModel.Title">
+                            @item.Name</a>
+                    </h2>
+                    <div class="picture">
+                        <a href="@Url.RouteUrl("Category", new { SeName = item.SeName })" title="@item.PictureModel.Title">
+                            <img alt="@item.PictureModel.AlternateText" src="@item.PictureModel.ImageUrl"
+                                    title="@item.PictureModel.Title" /></a>
+                    </div>
+                </div>
+            </div>
+        ))
+        </div>
+        <div class="clear">
+        </div>
+    }
+    <div class="category-products">
+        <div class="product-pager-and-sorter-and-view-options-7Spikes">
+
+            @Html.Widget("categorydetails_before_featured_products")
+
+            @*featured products*@
+            @if (Model.FeaturedProducts.Count > 0)
+            {
+                <div class="featured-product-grid product-grid">
+                    <div class="title">
+                        @T("Products.FeaturedProducts")
+                    </div>
+                    <div>
+                        @(Html.DataList7Spikes<ProductOverviewModel>(Model.FeaturedProducts, 3,
+                        @<div class="item-box">
+                            @Html.Partial("_ProductBox", item)
+                        </div>
+                    ))
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+            }
+
+            @Html.Widget("categorydetails_after_featured_products")
+
+            @if (Model.Products.Count > 0)
+            {
+                <div class="product-pager-and-size">
+                    @*pager*@
+                    <div class="pager">
+                        @Html.Pager(Model.PagingFilteringContext).QueryParam("pagenumber")
+                    </div>
+                    @*page size*@
+                    @if (Model.PagingFilteringContext.AllowCustomersToSelectPageSize && Model.Products.Count > 0)
+                    {
+                        <div class="product-page-size">
+                            <span>@T("Categories.PageSize")</span> <span>@Html.DropDownList("products-pagesize", Model.PagingFilteringContext.PageSizeOptions, new { onchange = "setLocation(this.value);" })</span>
+                            <span>@T("Categories.PageSize.PerPage")</span>
+                        </div>
+                    }
+                </div>
+                <div class="product-sorting-and-view-options">
+                    @*view mode*@
+                    @if (Model.PagingFilteringContext.AllowProductViewModeChanging && Model.Products.Count > 0)
+                    {
+                        <div class="product-viewmode">
+                            <span>@T("Categories.ViewMode")</span>
+                            @Html.DropDownList("products-viewmode", Model.PagingFilteringContext.AvailableViewModes, new { onchange = "setLocation(this.value);" })
+                        </div>
+                    }
+@*sorting*@
+                    @if (Model.PagingFilteringContext.AllowProductSorting && Model.Products.Count > 0)
+                    {
+                        <div class="product-sorting">
+                            <span>@T("Categories.OrderBy")</span>
+                            @Html.DropDownList("products-orderby", Model.PagingFilteringContext.AvailableSortOptions, new { onchange = "setLocation(this.value);" })
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+        <div class="clear">
+        </div>
+
+        @Html.Widget("categorydetails_before_product_list")
+
+        @*product list*@
+        @if (Model.Products.Count > 0)
+        {
+            if (Model.PagingFilteringContext.ViewMode == "list")
+            {
+@*list mode*@
+            <div class="product-list">
+                @foreach (var product in Model.Products)
+                {
+                    <div class="item-box">
+                        @Html.Partial("_ProductBox", product)
+                    </div>
+                }
+            </div>
+            }
+            else
+            {
+@*grid mode*@
+            <div class="product-grid">
+                @(Html.DataList7Spikes<ProductOverviewModel>(Model.Products, 3,
+                    @<div class="item-box">
+                        @Html.Partial("_ProductBox", item)
+                    </div>
+            ))
+            </div>
+            }
+        }
+        @if (Model.PagingFilteringContext.TotalPages > 1)
+        {
+            <div class="product-pager-and-sorter-and-view-options-7Spikes">
+                <div class="product-pager-and-size">
+                    @*pager*@
+                    <div class="pager">
+                        @Html.Pager(Model.PagingFilteringContext).QueryParam("pagenumber")
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    @Html.Widget("categorydetails_bottom")
+
+</div>

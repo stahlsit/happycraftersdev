@@ -1,0 +1,25 @@
+﻿@model CategoriesHeaderMenuModel
+@using SevenSpikes.Nop.Plugins.CategoriesHeaderMenu.Models
+
+@{
+    Html.AppendCssFileParts("~/Plugins/SevenSpikes.Nop.Plugins.CategoriesHeaderMenu/Themes/" + Model.Theme + "/Content/jquery.superfishmenu.css");
+
+    Html.AppendScriptParts("~/Plugins/SevenSpikes.Nop.Plugins.CategoriesHeaderMenu/Scripts/jquery.superfishmenu.js");
+}
+<div class="categoriesHeaderMenu">
+    <ul id="SuperFishMenuId" class="sf-menu">
+        @* This will render all main categories in a separate li element and all child categories will be nested in these li elements *@
+        @Html.Raw(Model.CategoriesHtml)
+        @if (Model.ShowManufacturers)
+        {
+            <li><a href="@Url.RouteUrl("ManufacturerList")">@T("Manufacturers")</a>
+                <ul>
+                    @Html.Raw(Model.ManufacturersHtml)
+                </ul>
+            </li>
+        }
+@* You can add additional links if you like i.e link to About Us topic page
+    <li><a href="@Url.RouteUrl("Topic", new { SystemName = "aboutus" })">@T("AboutUs")</a></li>
+    *@
+    </ul>
+</div>

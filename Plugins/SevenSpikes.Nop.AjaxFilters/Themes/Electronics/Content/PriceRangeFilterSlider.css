@@ -1,0 +1,84 @@
+/*
+* Copyright 2012 Seven Spikes Ltd. All rights reserved. (http://www.nop-templates.com)
+* http://www.nop-templates.com/t/licensinginfo
+*/
+
+.priceRangeFilterPanel7Spikes .filtersGroupPanel
+{
+    font-size: 11px;
+    margin: 0;
+    padding: 5px 10px 10px;
+}
+
+.priceRangeFilterPanel7Spikes .ui-slider
+{
+    background: #555555;
+    height: 4px;
+    position: relative;
+    width: 191px;
+	margin-bottom: 10px; 
+}
+
+.priceRangeFilterPanel7Spikes .priceRangeMinMaxPanel
+{
+    color: #3A3A3A;
+    height: 30px;
+    width: 197px;
+}
+
+.priceRangeMinPanel
+{
+    float: left;
+}
+
+.priceRangeMaxPanel
+{
+    float: right;
+}
+
+.nopAjaxFilters7Spikes .block .title a.clearPriceRangeFilter
+{
+    float: right;
+    color: #666666;
+    text-transform: none;
+    cursor: pointer;
+}
+
+.nopAjaxFilters7Spikes .block .title a.clearPriceRangeFilter:hover
+{
+    text-decoration: underline;   
+}
+
+.ui-slider-range {
+    background: none repeat scroll 0 0 #CCCCCC !important;
+    height: 4px !important;
+    padding: 0 !important;
+    position: absolute !important;
+}
+
+.ui-slider-handle {
+	display: inline-block !important;
+	width: 15px !important;
+	height: 21px !important;
+    background: url('images/scale_knob.png') !important;
+    position: absolute !important;
+    top: -8px !important;
+	margin-left: -4px !important;
+	border: none !important;
+}
+
+.priceRangeFilterPanel7Spikes .priceRangeCurrentPricesPanel
+{
+    color: #3A3A3A;
+    width: 197px;
+}
+
+.priceRangeCurrentPricesPanel .currentMinPrice
+{
+    float: left;
+}
+
+.priceRangeCurrentPricesPanel .currentMaxPrice
+{
+    float: right;
+}

@@ -1,0 +1,70 @@
+﻿@** Copyright 2012 Seven Spikes Ltd. All rights reserved. (http://www.nop-templates.com)
+* http://www.nop-templates.com/t/licensinginfo
+*@
+
+@model SevenSpikes.Nop.Plugins.CloudZoom.Models.CloudZoomModel
+@{
+    Html.AppendCssFileParts("~/Plugins/SevenSpikes.Nop.Plugins.CloudZoom/Themes/" + Model.Theme + "/Styles/cloud-zoom.1.0.2/cloud-zoom.css");
+
+    Html.AppendScriptParts("~/Plugins/SevenSpikes.Nop.Plugins.CloudZoom/Scripts/cloud-zoom.1.0.2/cloud-zoom.1.0.2.min.js");
+
+    var sb = new System.Text.StringBuilder();
+    foreach (var imageUrl in Model.Pictures)
+    {
+        sb.AppendFormat("[\"{0}\"],", imageUrl.FullSizeImageUrl);
+    }
+
+    var links = sb.ToString();
+    if (links.EndsWith(","))
+    {
+        links = links.Remove(links.Length - 1, 1);
+    }
+
+    links = "[" + links + "]";
+}
+@if (Model.EnableClickToZoom)
+{
+    Html.AppendScriptParts("~/Scripts/slimbox2.js");
+	
+    <script type="text/javascript">
+
+        function clickToZoom() {
+
+            var imagesUrls = @Html.Raw(links);
+        var currentProductImageUrl = $("#zoom1").attr("href");
+
+        var startingImage = 0;
+
+        $.each(imagesUrls, function(index, value) {
+            if(value[0] == currentProductImageUrl)
+            {
+                startingImage = index;
+            }
+        });
+
+        jQuery.slimbox(imagesUrls, startingImage, { loop:true });
+    };
+
+    $(document).ready(function () {
+        $(".picture").on("click", ".mousetrap", function () {
+               clickToZoom(); 
+        });
+    });
+    </script>
+}
+<div class="picture">
+    <a href="@Model.DefaultPicture.FullSizeImageUrl" class="cloud-zoom" id="zoom1" rel="@Model.DefaultPicture.DefaultRelation">
+        <img src="@Model.DefaultPicture.SmallImageUrl" alt="@Model.DefaultPicture.AlternateText" title="@Model.DefaultPicture.Title" id="cloudZoomImage" />
+    </a>
+    @if (Model.Pictures.Count > 1)
+    {
+        foreach (var picture in Model.Pictures)
+        {
+
+        <a href="@picture.FullSizeImageUrl" class="cloud-zoom-gallery" title="@picture.Title" rel="@picture.GalleryRelation">
+            <img class="cloud-zoom-gallery-img" src="@picture.TinyImageUrl" alt="@picture.AlternateText" title="@picture.Title" />
+        </a>
+
+        }
+    }
+</div>

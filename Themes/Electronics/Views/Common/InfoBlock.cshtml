@@ -1,0 +1,35 @@
+﻿@model Nop.Web.Models.Common.InfoBlockModel
+<div class="master-wrapper-content-footer">
+    <ul>
+            @Html.Widget("infoblock_before")
+        <li><a href="@Url.RouteUrl("ContactUs")">@T("ContactUs")</a> </li>
+        <li>|</li>
+        <li><a href="@Url.RouteUrl("Topic", new { SystemName = "aboutus" })">@T("AboutUs")</a></li>
+        <li>|</li>
+        @if (Model.BlogEnabled)
+        {
+            <li><a href="@Url.RouteUrl("Blog")">@T("Blog")</a></li>
+            <li>|</li>
+        }
+        @if (Model.ForumEnabled)
+        {
+            <li><a href="@Url.RouteUrl("Boards")">@T("Forum.Forums")</a></li>
+            <li>|</li>
+        }
+        @if (Model.SitemapEnabled)
+        {
+            <li><a href="@Url.RouteUrl("Sitemap")">@T("Sitemap")</a></li>
+            <li>|</li>
+        }
+        <li><a href="@Url.RouteUrl("Topic", new { SystemName = "shippinginfo" })">@T("ShippingReturns")</a></li>
+        <li>|</li>
+        <li><a href="@Url.RouteUrl("Topic", new { SystemName = "privacyinfo" })">@T("PrivacyNotice")</a></li>
+        <li>|</li>
+        <li><a href="@Url.RouteUrl("Topic", new { SystemName = "conditionsofUse" })">@T("ConditionsOfUse")</a></li>
+            @Html.Widget("infoblock_after")
+    </ul>
+    <div class="footer-disclaimer">
+        @Html.Action("NopCommerceCopyright", "ElectronicsTheme")
+        @Html.Action("ContentCopyrightNotice", "ElectronicsTheme")
+    </div>
+</div>

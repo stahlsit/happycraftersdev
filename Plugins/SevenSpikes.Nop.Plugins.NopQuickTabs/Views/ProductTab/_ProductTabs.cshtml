@@ -1,0 +1,221 @@
+﻿@** Copyright 2012 Seven Spikes Ltd. All rights reserved. (http://www.nop-templates.com)
+* http://www.nop-templates.com/t/licensinginfo
+*@
+
+@using Nop.Core.Infrastructure
+@using Nop.Core
+@using SevenSpikes.Nop.Plugins.NopQuickTabs
+@model SevenSpikes.Nop.Plugins.NopQuickTabs.Models.TabUIModel
+@{
+    Html.AppendScriptParts("~/Scripts/jquery-ui.min.js");
+
+    Html.AppendScriptParts("~/Plugins/SevenSpikes.Nop.Plugins.NopQuickTabs/Scripts/ProductTabs.js");
+
+    Html.AppendCssFileParts(String.Format("~/Plugins/{0}/Themes/{1}/Content/jquery-ui-1.8.21.custom.css", Names.PluginFolderName, Model.Settings.Theme));
+
+    if (Model.Settings.EnableAjax)
+    { 
+    @AjaxTabs() 
+    }
+    else
+    { 
+    @NoAjaxTabs()
+    }
+
+    var storeLocation = EngineContext.Current.Resolve<IWebHelper>().GetStoreLocation();
+    storeLocation = storeLocation.TrimEnd('/');
+    
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+            $('#add-review').live("click", function () {
+                AddReview("@storeLocation", "@Model.ProductId");
+            });
+        });
+    </script>
+}
+@helper AjaxTabs()
+{       
+    var couldNotLoadTabErrorMessage = T("SevenSpikes.NopQuickTabs.Client.Tabs.CouldNotLoadTabErrorMessage").ToString();
+        
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $("#tabs").tabs({
+                ajaxOptions: {
+                    error: function (xhr, status, index, anchor) {
+                        $(anchor.hash).html(
+						"@couldNotLoadTabErrorMessage");
+                    }
+                }
+            });
+        });
+    </script>    
+    var storeLocation = EngineContext.Current.Resolve<IWebHelper>().GetStoreLocation();
+    storeLocation = storeLocation.TrimEnd('/');
+
+    IHtmlString defaultTabContent = new HtmlString("");
+    string defaultTabTitle = String.Empty;
+
+    IHtmlString specificationsContent = new HtmlString("");
+    string specificationsTitle = String.Empty;
+
+    bool missFirstTab = false;
+    bool showSpecs = true;
+    bool showReviews = true;
+
+
+    if (Model.Tabs.Count == 0 &&
+    !Model.Settings.EnableProductFullDescriptionTab &&
+    !Model.Settings.EnableProductReviewsTab &&
+    !Model.Settings.EnableProductSpecificationsTab)
+    {
+
+    }
+    else
+    {
+    <div id="tabs" class="productTabs" style="margin-top: 10px">
+        <div class="productTabs-header">
+            <ul>
+                @if (Model.Settings.EnableProductFullDescriptionTab)
+                {
+                    defaultTabContent = Html.Raw(@Model.Description);
+                    defaultTabTitle = T("SevenSpikes.NopQuickTabs.Client.Tabs.Description").ToString();
+                }
+                else
+                {
+                    if (Model.Settings.EnableProductSpecificationsTab)
+                    {
+                        defaultTabTitle = T("SevenSpikes.NopQuickTabs.Client.Tabs.Specifications").ToString();
+                        defaultTabContent = Html.Action("ProductSpecificationsTab", "ProductTab", new { id = Model.ProductId });
+                        showSpecs = false;
+                    }
+                    else
+                    {
+                        if (Model.Settings.EnableProductReviewsTab)
+                        {
+                            defaultTabTitle = T("SevenSpikes.NopQuickTabs.Client.Tabs.Reviews").ToString();
+                            defaultTabContent = Html.Action("ProductReviewsTab", "ProductTab", new { id = Model.ProductId });
+                            showReviews = false;
+                        }
+                        else
+                        {
+                            var defaultTab = Model.Tabs.First();
+                            defaultTabTitle = defaultTab.DisplayName;
+                            defaultTabContent = Html.Raw(defaultTab.Description);
+                            missFirstTab = true;
+                        }
+                    }
+                }
+                <li id="firstTabTitle"><a href="#tabs-1">@defaultTabTitle</a> </li>
+                @if (Model.Settings.EnableProductSpecificationsTab && showSpecs)
+                {
+                    var specificaions = Html.Action("ProductSpecificationsTab", "ProductTab", new { id = Model.ProductId });
+                    if (!String.IsNullOrWhiteSpace(specificaions.ToString()))
+                    {
+                            <li><a href="@storeLocation/ProductTab/ProductSpecificationsTab/@Model.ProductId">@T("SevenSpikes.NopQuickTabs.Client.Tabs.Specifications").ToHtmlString()</a>
+                            </li>
+                    }
+                }
+                @if (Model.Settings.EnableProductReviewsTab && showReviews)
+                { 
+                    <li><a href="@storeLocation/ProductTab/ProductReviewsTab/@Model.ProductId">@T("SevenSpikes.NopQuickTabs.Client.Tabs.Reviews").ToHtmlString()</a>
+                    </li>
+                }
+                @foreach (var tab in Model.Tabs)
+                {
+                    if (!missFirstTab)
+                    {
+                    <li><a href="@storeLocation/ProductTab/ProductTab/@tab.Id">@tab.DisplayName</a>
+                    </li>
+                    }
+                    else
+                    {
+                        missFirstTab = false;
+                    }
+                }
+            </ul>
+        </div>
+        <div id="tabs-1">
+            @defaultTabContent
+        </div>
+    </div>
+    }
+}
+@helper NoAjaxTabs()
+{
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $("#tabs").tabs();
+        });
+    </script>
+    
+    IHtmlString defaultTabContent = new HtmlString("");
+    string defaultTabTitle = String.Empty;
+
+    IHtmlString specificationsContent = new HtmlString("");
+    string specificationsTitle = String.Empty;
+
+    bool missFirstTab = false;
+    bool showSpecs = true;
+    bool showReviews = true;
+
+    if (Model.Tabs.Count == 0 &&
+    !Model.Settings.EnableProductFullDescriptionTab &&
+    !Model.Settings.EnableProductReviewsTab &&
+    !Model.Settings.EnableProductSpecificationsTab)
+    {
+
+    }
+    else
+    {
+        var divs = new List<KeyValuePair<string, string>>();
+        
+    <div id="tabs" class="productTabs" style="margin-top: 10px">
+        <div class="productTabs-header">
+            <ul>
+                @if (Model.Settings.EnableProductFullDescriptionTab)
+                {
+                    divs.Add(new KeyValuePair<string, string>("tabs-description", Model.Description));
+                    <li><a href="#tabs-description">@T("SevenSpikes.NopQuickTabs.Client.Tabs.Description").ToHtmlString()</a>
+                    </li>                
+                }
+                @if (Model.Settings.EnableProductSpecificationsTab)
+                {
+                    var specificaions = Html.Action("ProductSpecificationsTab", "ProductTab", new { id = Model.ProductId });
+                    if (!String.IsNullOrWhiteSpace(specificaions.ToString()))
+                    {
+                        divs.Add(new KeyValuePair<string, string>("tabs-specs", specificaions.ToString()));
+                    <li><a href="#tabs-specs">@T("SevenSpikes.NopQuickTabs.Client.Tabs.Specifications").ToHtmlString()</a>
+                    </li>  
+                    }
+                }
+                @if (Model.Settings.EnableProductReviewsTab)
+                {
+                    var reviews = Html.Action("ProductReviewsTab", "ProductTab", new { id = Model.ProductId });
+                    divs.Add(new KeyValuePair<string, string>("tabs-reviews", reviews.ToString()));
+                    <li><a href="#tabs-reviews">@T("SevenSpikes.NopQuickTabs.Client.Tabs.Reviews").ToHtmlString()</a>
+                    </li>                   
+                }
+                @foreach (var tab in Model.Tabs)
+                {
+                    divs.Add(new KeyValuePair<string, string>("tabs-" + tab.Id.ToString(), tab.Description));
+                    <li><a href="#tabs-@tab.Id">@tab.DisplayName</a> </li>                
+                }
+                @* Uncomment the code bewlow if you want to have a Tab that gets its information from a Topic. This tab will be shown for all products in your store*@
+                @*<li><a href="#tab-ShippingInfo">@T("ShippingReturns")</a> </li>   *@
+            </ul>
+        </div>
+        <div class="productTabs-body">
+            @foreach (var pair in divs)
+            {
+                <div id="@pair.Key">
+                    @Html.Raw(@pair.Value)
+                </div>
+            }
+            @* Uncomment the code bewlow if you want to have a Tab that gets its information from a Topic. This tab will be shown for all products in your store *@
+            @*<div id="tab-ShippingInfo">
+        @Html.Action("TopicBlock", "ProductTab", new { systemName = "ShippingInfo" })
+        </div>*@
+        </div>
+    </div>
+    }
+}

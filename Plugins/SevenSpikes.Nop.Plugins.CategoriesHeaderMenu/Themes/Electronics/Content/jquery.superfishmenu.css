@@ -1,0 +1,112 @@
+﻿/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+
+    CATEGORIES HEADER MENU
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+
+
+
+.categoriesHeaderMenu
+{
+	position: relative;
+	z-index: 1000;
+    height: 43px;
+	background: url('images/nav_bg.png') repeat-x;
+	margin: 0 0 12px;
+	padding: 0px;
+	border: 1px solid #d8d8d8;
+	border-radius: 5px;
+}
+
+.sf-menu
+{
+    height: 45px;
+	margin: 0;
+    padding: 0 0 0 8px;
+}
+
+.sf-menu *
+{
+    margin: 0;
+    padding: 0;
+    list-style: none; 
+}
+
+.sf-menu > li
+{
+    position: relative;
+    float: left;
+	background: url('images/spacer_nav.gif') right center no-repeat;
+	margin: -1px -2px 0 0;
+}
+
+.sf-menu > li > a
+{
+    display: block;
+    padding: 0 24px 0 22px;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: bold;
+	text-shadow: 1px 1px 0 #fff;
+    line-height: 43px;
+	border-top: 1px solid transparent;
+}
+
+.sf-menu > li:hover > a {
+	background: url('images/nav-pad.png') repeat-x;
+	color: #fff;
+	text-shadow: none;
+	border-top: 1px solid #bc0;
+	border-bottom: 1px solid #890;
+	box-shadow: inset 0 1px 0 #efc;
+}
+
+.sf-menu ul
+{
+    display: none;
+    position: absolute;
+    top: 45px;
+    left: 0;
+    z-index: 100;
+    width: 180px;
+    background-color: #f3f3f3;
+	padding-bottom: 1px;
+	border: 1px dotted #ccc;
+	border-top: none;
+}
+
+.sf-menu ul li
+{
+	position: relative;
+}
+
+.sf-menu ul a
+{
+    display: block;
+    padding:  5px 15px;
+    font-size: 11px;
+    color: #333;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: bold;
+	border-top: 1px dotted #ccc;
+}
+
+.sf-menu ul a:hover 
+{
+	background-color: #b0c73a;
+	color: #fff;
+}
+
+.sf-menu ul ul 
+{
+    top: 0;
+    left: 180px;
+}
+
+.sf-menu li:hover > ul
+{
+    display: block;
+}

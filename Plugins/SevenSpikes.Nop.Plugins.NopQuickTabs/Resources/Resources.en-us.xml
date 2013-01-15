@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Language Name="English">
+  <LocaleResource Name="SevenSpikes">
+    <Value></Value>
+    <Children>
+      <LocaleResource Name="NopQuickTabs">
+        <Value>Nop Quick Tabs</Value>
+        <Children>
+          <LocaleResource Name="Admin">
+            <Value>Admin</Value>
+            <Children>
+              <LocaleResource Name="Tabs">
+                <Value>Tabs</Value>
+                <Children>
+                  <LocaleResource Name="Products">
+                    <Value>Product mappings</Value>
+                    <Children>
+                      <LocaleResource Name="SaveBeforeEdit">
+                        <Value>You need to save the tab before you can map it to products.</Value>
+                      </LocaleResource>
+                      <LocaleResource Name="HowMappingWorks">
+                        <Value>Add the products for which you want {0} tab to appear on their product details pages</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="Categories">
+                    <Value>Category mappings</Value>
+                    <Children>
+                      <LocaleResource Name="SaveBeforeEdit">
+                        <Value>You need to save the tab before you can map it to categories.</Value>
+                      </LocaleResource>
+                      <LocaleResource Name="HowMappingWorks">
+                        <Value>The {0} tab will appear on the product details pages of the products in the selected categories</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="Manufacturers">
+                    <Value>Manufacturer mappings</Value>
+                    <Children>
+                      <LocaleResource Name="SaveBeforeEdit">
+                        <Value>You need to save the tab before you can map it to manufacturers.</Value>
+                      </LocaleResource>
+                      <LocaleResource Name="HowMappingWorks">
+                        <Value>By adding a manufacturer then the {0} tab will appear on the product details pages of each product that has the given manufacturer</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="InfoTab">
+                    <Value>Tab Info</Value>
+                  </LocaleResource>
+                  <LocaleResource Name="Notifications">
+                    <Value></Value>
+                    <Children>
+                      <LocaleResource Name="Added">
+                        <Value>Tab successfully added</Value>
+                      </LocaleResource>
+                      <LocaleResource Name="Edited">
+                        <Value>Tab successfully updated</Value>
+                      </LocaleResource>
+                      <LocaleResource Name="Deleted">
+                        <Value>Tab successfully deleted</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="Fields">
+                    <Children>
+                      <LocaleResource Name="SystemName">
+                        <Value>System Name</Value>
+                        <Children>
+                          <LocaleResource Name="Required">
+                            <Value>System Name is required</Value>
+                          </LocaleResource>
+                          <LocaleResource Name="Hint">
+                            <Value>The System Name is used only internally for easier management of the different tabs. The System Name is NOT displayed in the public store front</Value>
+                          </LocaleResource>
+                        </Children>
+                      </LocaleResource>
+                      <LocaleResource Name="DisplayName">
+                        <Value>Display Name</Value>
+                        <Children>
+                          <LocaleResource Name="Hint">
+                            <Value>This is the name of the Tab as it will be displayed in the public store front</Value>
+                          </LocaleResource>
+                        </Children>  
+                      </LocaleResource>
+                      <LocaleResource Name="Description">
+                        <Value>Description</Value>
+                        <Children>
+                          <LocaleResource Name="Hint">
+                            <Value>This is the actuall content of the Tab as it will appear in the public store front</Value>
+                          </LocaleResource>
+                        </Children>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="AddNew">
+                    <Value>Add new Tab</Value>
+                  </LocaleResource>
+                  <LocaleResource Name="BackToList">
+                    <Value>Back to Tabs</Value>
+                  </LocaleResource>
+                  <LocaleResource Name="EditTabDetails">
+                    <Value>Edit tab details</Value>
+                  </LocaleResource>
+                  <LocaleResource Name="Settings">
+                    <Children>
+                      <LocaleResource Name="Common">
+                        <Value>Tab Settings</Value>
+                      </LocaleResource>
+                      <LocaleResource Name="EnableProductFullDescriptionTab">
+                        <Value>Enable Product Full Description Tab</Value>
+                        <Children>
+                          <LocaleResource Name="Hint">
+                            <Value>Enables a product tab with the product full description</Value>
+                          </LocaleResource>
+                        </Children>
+                      </LocaleResource>
+                      <LocaleResource Name="EnableProductSpecificationsTab">
+                        <Value>Enable Product Specifications Tab</Value>
+                        <Children>
+                          <LocaleResource Name="Hint">
+                            <Value>Enables a product tab with the product specifications</Value>
+                          </LocaleResource>
+                        </Children>
+                      </LocaleResource>
+                      <LocaleResource Name="EnableProductReviewsTab">
+                        <Value>Enable Product Reviews Tab</Value>
+                        <Children>
+                          <LocaleResource Name="Hint">
+                            <Value>Enables a product tab with the product reviews</Value>
+                          </LocaleResource>
+                        </Children>
+                      </LocaleResource>
+                      <LocaleResource Name="EnableAutomaticIntegration">
+                        <Value>Enable Automatic Integration</Value>
+                        <Children>
+                          <LocaleResource Name="Hint">
+                            <Value>Integrated the Product Tabs automatically into the Product Details page\view.</Value>
+                          </LocaleResource>
+                        </Children>
+                      </LocaleResource>
+                      <LocaleResource Name="Theme">
+                        <Value>Theme</Value>
+                        <Children>
+                          <LocaleResource Name="Hint">
+                            <Value>Select the theme for the tabs</Value>
+                          </LocaleResource>
+                        </Children>
+                      </LocaleResource>
+                      <LocaleResource Name="EnableAjax">
+                        <Value>Enable Ajax</Value>
+                        <Children>
+                          <LocaleResource Name="Hint">
+                            <Value>Enables Ajax loading of the tab content</Value>
+                          </LocaleResource>
+                        </Children>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                </Children>
+              </LocaleResource>
+              <LocaleResource Name="ProductTabs">
+                <Value></Value>
+                <Children>
+                  <LocaleResource Name="Manage">
+                    <Value>Manage Products and Tabs</Value>
+                  </LocaleResource>
+                  <LocaleResource Name="AddNew">
+                    <Value>Add a new Tab</Value>
+                  </LocaleResource>
+                  <LocaleResource Name="Fields">
+                    <Value></Value>
+                    <Children>
+                      <LocaleResource Name="TabSystemName">
+                        <Value>Tab System Name</Value>
+                      </LocaleResource>
+                      <LocaleResource Name="ProductName">
+                        <Value>Product</Value>
+                      </LocaleResource>
+                      <LocaleResource Name="DisplayOrder">
+                        <Value>Display Order</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                  <LocaleResource Name="AddNewTabPopup">
+                    <Value></Value>
+                    <Children>
+                      <LocaleResource Name="AddNew">
+                        <Value>Add A New Tab</Value>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                </Children>
+              </LocaleResource>
+            </Children>
+          </LocaleResource>
+          <LocaleResource Name="Client">
+            <Value></Value>
+            <Children>
+              <LocaleResource Name="Tabs">
+                <Value></Value>
+                <Children>
+                  <LocaleResource Name="Description">
+                    <Value>Overview</Value>
+                  </LocaleResource>
+                  <LocaleResource Name="Specifications">
+                    <Value>Specifications</Value>
+                  </LocaleResource>
+                  <LocaleResource Name="Reviews">
+                    <Value>Reviews</Value>
+                  </LocaleResource>
+                  <LocaleResource Name="CouldNotLoadTabErrorMessage">
+                    <Value>Couldn't load this tab.</Value>
+                  </LocaleResource>
+                </Children>
+              </LocaleResource>
+            </Children>
+          </LocaleResource>
+        </Children>
+      </LocaleResource>
+    </Children>
+  </LocaleResource>
+  <LocaleResource Name="ActivityLog">
+    <Value></Value>
+    <Children>
+      <LocaleResource Name="EditTabSettings">
+        <Value>Nop Quick Tabs settings were edited.</Value>
+      </LocaleResource>
+    </Children>
+  </LocaleResource>
+</Language>

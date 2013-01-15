@@ -1,0 +1,84 @@
+﻿@** Copyright 2012 Seven Spikes Ltd. All rights reserved. (http://www.nop-templates.com)
+* http://www.nop-templates.com/t/licensinginfo
+*@
+
+@model SevenSpikes.Nop.Plugins.InstantSearch.Models.InstantSearchSettingsModel
+@* Kendo UI javascript file could not be used in any ways outsite the InstantSearch plugin without purchasing Kendo UI commercial license 
+<script src="@Url.Content("~/Plugins/SevenSpikes.Nop.Plugins.Core/Scripts/kendo.all.min.js")" type="text/javascript"></script> *@
+@{
+    var storeLocation = Nop.Core.Infrastructure.EngineContext.Current.Resolve<Nop.Core.IWebHelper>().GetStoreLocation();
+    storeLocation = storeLocation.TrimEnd('/');
+    var instantSearchUrl = storeLocation + "/InstantSearch/InstantSearchFor";
+
+    /*Kendo UI specific css files.
+
+    kendo.common.min.css - it contains common kendo styles
+    kendo.default.min.css - it contains deafult kendo theme specific styles. You can use the kendo theme builder for new themes - http://demos.kendoui.com/themebuilder/index.html
+
+    */
+    
+    Html.AppendCssFileParts("~/Plugins/SevenSpikes.Core/Styles/kendo.common.min.css");
+    Html.AppendCssFileParts("~/Plugins/SevenSpikes.Core/Styles/kendo.default.min.css");
+    Html.AppendCssFileParts("~/Plugins/SevenSpikes.Nop.Plugins.InstantSearch/Themes/" + Model.Theme + "/Content/InstantSearch.css");
+
+    Html.AppendScriptParts("~/Plugins/SevenSpikes.Core/Scripts/kendo.all.min.js");
+}
+<script type="text/javascript">
+$(document).ready(function () {
+    var autocomplete = $("#small-searchterms").kendoAutoComplete(
+            {
+                height: @Model.AutocompleteHeight,
+                minLength: @Model.MinKeywordLength,
+                dataTextField: "ProductName",
+                filter: "contains",
+                @* You can change the whole html by modifying the template below without the main div element as it is used in the navigation. 
+                   There is NO need to add anchor html elements(<a href..) as the navigation is handled automaticaly when an item is selected.
+                   You can use the following tokens to get the information retuned from the server:
+                   ${ data.ProductPageUrl } - contains the url of the product page i.e /p/7. This property is required for the navigation to work and should not be removed from the template!!!
+                   ${ data.ProductName } - contains the name of the product
+                   ${ data.DefaultPictureUrl } - contains the Url of the default product picture
+                   ${ data.ProductPrice } - contains the price of the product
+                *@
+                template: '<div class="instant-search-item" data-url="@storeLocation/${ data.SeName }">' +
+                               '<div class="img-block">' +
+                                 '<div class="image">' +
+                                   '<img src="${ data.DefaultPictureModel.ImageUrl }" alt="${ data.Name }" title="${ data.Name }" style="border:none">' +
+                                 '</div>' +
+                               '</div>' +
+                               '<div class="detail">' +
+                                  '<div class="title">${ data.Name }</div>' +
+                                  '<div class="price">${ data.ProductPrice.Price }</div>' +
+                                '</div>' +
+                          '</div>',
+                dataSource: new kendo.data.DataSource({
+                    serverFiltering: true,
+                    requestStart: function(e){
+                        $("#small-searchterms").addClass("instant-search-busy");
+                    },
+                    change: function(e){
+                        $("#small-searchterms").removeClass("instant-search-busy");
+                    },
+                    transport: {
+                        read: "@instantSearchUrl",
+                        parameterMap: function (data) {
+                            return { q: $("#small-searchterms").val() };
+                        }
+                    }
+                }
+                ),
+                change: function (e) {
+                    var selected = $(".k-list").find(".k-state-selected");
+                    var url = selected.find('.instant-search-item').attr('data-url');
+                    if (typeof url === "undefined") {
+                        // do nothing as the value has probably been changed from the onblur event handler rather than from dropdown selection                   
+                    } else {
+                        // navigate to the searched product
+                        setLocation(url);
+                    }
+                }
+            });
+
+    // set width of the drop-down list
+    $("#small-searchterms").data("kendoAutoComplete").list.width(@Model.AutocompleteWidth);
+    });
+</script>

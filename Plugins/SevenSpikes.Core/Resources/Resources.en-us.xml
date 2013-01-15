@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Language Name="English">
+  <LocaleResource Name="SevenSpikes">
+    <Children>
+      <LocaleResource Name="Themes">
+        <Children>
+          <LocaleResource Name="Admin">
+            <Children>
+              <LocaleResource Name="Settings">
+                <Children>
+                  <LocaleResource Name="PluginsIntegration">
+                    <Value>Plugins Integration</Value>
+                    <Children>
+                      <LocaleResource Name="AnywhereSliders">
+                        <Value>Integrate Nop Anywhere Sliders</Value>
+                        <Children>
+                          <LocaleResource Name="Hint">
+                            <Value>Enable integration of Nop Anywhre Sliders in the Nop Electronics Theme</Value>
+                          </LocaleResource>
+                        </Children>
+                      </LocaleResource>
+                      <LocaleResource Name="CategoriesHeaderMenu">
+                        <Value>Integrate Nop Categories Header Menu</Value>
+                        <Children>
+                          <LocaleResource Name="Hint">
+                            <Value>Enable integration of Nop Categories Header Menu in the Nop Electronics Theme</Value>
+                          </LocaleResource>
+                        </Children>
+                      </LocaleResource>
+                      <LocaleResource Name="AjaxFilters">
+                        <Value>Integrate Nop Ajax Filters</Value>
+                        <Children>
+                          <LocaleResource Name="Hint">
+                            <Value>Enable integration of Nop Ajax Filters in the Nop Electronics Theme</Value>
+                          </LocaleResource>
+                        </Children>
+                      </LocaleResource>
+                      <LocaleResource Name="QuickTabs">
+                        <Value>Integrate Nop Quick Tabs</Value>
+                        <Children>
+                          <LocaleResource Name="Hint">
+                            <Value>Enable integration of Nop Quick Tabs in the Nop Electronics Theme</Value>
+                          </LocaleResource>
+                        </Children>
+                      </LocaleResource>
+                      <LocaleResource Name="SmartSEO">
+                        <Value>Integrate Nop Smart SEO</Value>
+                        <Children>
+                          <LocaleResource Name="Hint">
+                            <Value>Enable integration of Nop Smart SEO in the Nop Electronics Theme</Value>
+                          </LocaleResource>
+                        </Children>
+                      </LocaleResource>
+                      <LocaleResource Name="AjaxCart">
+                        <Value>Integrate Nop Ajax Cart</Value>
+                        <Children>
+                          <LocaleResource Name="Hint">
+                            <Value>Enable integration of Nop Ajax Cart in the Nop Electronics Theme</Value>
+                          </LocaleResource>
+                        </Children>
+                      </LocaleResource>
+                      <LocaleResource Name="InstantSearch">
+                        <Value>Integrate Nop Instant Search</Value>
+                        <Children>
+                          <LocaleResource Name="Hint">
+                            <Value>Enable integration of Nop Instant Search in the Nop Electronics Theme</Value>
+                          </LocaleResource>
+                        </Children>
+                      </LocaleResource>
+                      <LocaleResource Name="CloudZoom">
+                        <Value>Integrate Nop Cloud Zoom</Value>
+                        <Children>
+                          <LocaleResource Name="Hint">
+                            <Value>Enable integration of Nop Cloud Zoom in the Nop Electronics Theme</Value>
+                          </LocaleResource>
+                        </Children>
+                      </LocaleResource>
+                    </Children>
+                  </LocaleResource>
+                </Children>
+              </LocaleResource>
+            </Children>
+          </LocaleResource>
+        </Children>
+      </LocaleResource>
+    </Children>
+  </LocaleResource>
+</Language>

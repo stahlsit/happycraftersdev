@@ -1,0 +1,25 @@
+﻿@** Copyright 2012 Seven Spikes Ltd. All rights reserved. (http://www.nop-templates.com)
+* http://www.nop-templates.com/t/licensinginfo
+*@
+
+@model Nop.Web.Models.Catalog.ProductDetailsModel.ProductVariantModel.AddToCartModel
+<div class="add-info">
+    @if (Model.CustomerEntersPrice)
+    {
+        @Html.LabelFor(model => model.CustomerEnteredPrice)<text>:</text>
+        //round price
+        @Html.TextBox("CustomerEnteredPrice", Convert.ToInt32(Math.Ceiling(Model.CustomerEnteredPrice)), new { style = "Width: 60px;" })
+        <br />
+        @Model.CustomerEnteredPriceRange
+        <br />
+    }
+    @if (!Model.DisableBuyButton)
+    {
+        @Html.LabelFor(model => model.EnteredQuantity)<text>:</text> 
+        @Html.TextBoxFor(model => model.EnteredQuantity, new { style = "Width: 40px;" })
+    }
+    @if (!Model.DisableBuyButton)
+    {
+         @Html.Action("GetMiniProductDetailsViewAddProductVariantToCartAjaxButton", "NopAjaxCart", new { ProductId = ViewData["ProductId"], ProductVariantId = Model.ProductVariantId })
+    }
+</div>

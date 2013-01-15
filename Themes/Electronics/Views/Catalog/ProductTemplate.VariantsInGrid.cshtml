@@ -1,0 +1,150 @@
+﻿@model ProductDetailsModel
+@using Nop.Core;
+@using Nop.Core.Domain.Common;
+@using Nop.Core.Domain.Seo;
+@using Nop.Core.Infrastructure;
+@using Nop.Web;
+@using Nop.Web.Framework.UI;
+@using Nop.Web.Models.Catalog;
+@using SevenSpikes.Theme.Electronics.Models.Catalog;
+@using Nop.Web.Extensions;
+@{
+    Layout = "~/Views/Shared/_ColumnsTwo.cshtml";
+
+    //title, meta
+    Html.AddTitleParts(!String.IsNullOrEmpty(Model.MetaTitle) ? Model.MetaTitle : Model.Name);
+    Html.AddMetaDescriptionParts(Model.MetaDescription);
+    Html.AddMetaKeywordParts(Model.MetaKeywords);
+
+    var canonicalUrlsEnabled = EngineContext.Current.Resolve<SeoSettings>().CanonicalUrlsEnabled;
+    if (canonicalUrlsEnabled)
+    {
+        var productUrl = Url.RouteUrl("Product", new { SeName = Model.SeName }, this.Request.Url.Scheme);
+        Html.AddCanonicalUrlParts(productUrl);
+    }
+    var electronicsThemeSettings = EngineContext.Current.Resolve<SevenSpikes.Theme.Electronics.Domain.ElectronicsThemePluginsIntegrationSettings>();
+
+    var quickTabsIntegrated = electronicsThemeSettings.IntegrateNopQuickTabs;
+
+    var cloudZoomIntegrated = electronicsThemeSettings.IntegrateNopCloudZoom;
+}
+<div class="product-details-page">
+        @Html.Widget("productdetails_top")
+    @using (Html.BeginRouteForm("Product", new { SeName = Model.SeName }, FormMethod.Post, new { id = "product-details-form" }))
+    {
+        <div class="product-essential">
+            <div class="product-details-info">
+
+                @Html.Widget("productdetails_before_pictures")
+
+                @if (cloudZoomIntegrated)
+                {
+                    @Html.Action("CloudZoom", "CloudZoom", Model)
+                    
+                }
+                else
+                {
+                    @Html.Partial("_ProductDetailsPictures", Model)
+                }
+
+                @Html.Widget("productdetails_after_pictures")
+
+                <div class="overview">
+
+                    @Html.Widget("productdetails_overview_top")
+
+                    <h1 class="productname">
+                        @Model.Name
+                    </h1>
+                    @if (cloudZoomIntegrated)
+                    {
+                        <div id="cloudZoomWindowElement" style="position: absolute;">
+                        </div>
+                    }
+                    @Html.Action("ProductEmailAFriendButton", "Catalog", new { productId = Model.Id })
+                    
+                    @Html.Action("ProductReviewOverview", "Catalog", new { productId = Model.Id })
+                    
+                    <div class="clear">
+                    </div>
+                    <ul class="add-to-links">
+                        @Html.Action("CompareProductsButton", "Catalog", new { productId = Model.Id })
+                    </ul>
+                    <div class="shortdescription">
+                        <h2>
+                            @T("SevenSpikes.Themes.Electronics.ProductDetails.QuickOverview")</h2>
+                        @Html.Raw(Model.ShortDescription)
+                    </div>
+                    <div class="clear">
+                    </div>
+                    <br />
+                    @Html.Action("ShareButton", "Catalog")
+                    @Html.Widget("productdetails_overview_bottom")
+                </div>
+                <div class="clear">
+                </div>
+            </div>
+        </div>
+        <div class="clear">
+        </div>
+        <div class="product-collateral">
+            @if (quickTabsIntegrated)
+            {
+                @Html.Action("ProductTabs", "ProductTab") 
+            }
+            @if (!quickTabsIntegrated)
+            {
+                <div class="tabhead">
+                    <h3>
+                        @T("SevenSpikes.Themes.Electronics.ProductDetails.Description")</h3>
+                </div>
+                <div class="tabinfo">
+                    <div class="fulldescription">
+                        @Html.Raw(Model.FullDescription)
+                    </div>
+                </div>
+            }
+            <!--product variants-->
+            <div class="product-variant-list">
+                @foreach (var variant in Model.ProductVariantModels)
+                {
+                    var dataDictVariant = new ViewDataDictionary();
+                    dataDictVariant.TemplateInfo.HtmlFieldPrefix = string.Format("variant_{0}", variant.Id);
+                    @Html.Partial("_ProductVariantLine", variant, dataDictVariant)
+                }
+            </div>
+            <div class="clear">
+            </div>
+            <div>
+                @Html.Action("RelatedProducts", "Catalog", new { productId = Model.Id })
+            </div>
+            <div class="tabhead">
+                <h3>
+                    @T("SevenSpikes.Themes.Electronics.ProductDetails.AdditionalInfo")</h3>
+            </div>
+            <div class="tabinfo">
+                <!--product manufactures-->
+                @Html.Action("ProductManufacturers", "Catalog", new { productId = Model.Id })
+                <div class="clear">
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+            <div>
+                @if (!quickTabsIntegrated)
+                {
+                    @Html.Action("ProductSpecifications", "Catalog", new { productId = Model.Id })
+                }
+            </div>
+            <div class="clear">
+            </div>
+            <div>
+                @Html.Action("ProductsAlsoPurchased", "Catalog", new { productId = Model.Id })
+            </div>
+            <div>
+                @Html.Action("ProductTags", "Catalog", new { productId = Model.Id })
+            </div>
+        </div>
+    }
+       @Html.Widget("productdetails_bottom")
+</div>

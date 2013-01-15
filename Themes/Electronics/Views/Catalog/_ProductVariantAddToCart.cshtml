@@ -1,0 +1,55 @@
+﻿@model ProductDetailsModel.ProductVariantModel.AddToCartModel
+@using Nop.Web.Models.Catalog;
+@using Nop.Web.Framework;
+@using Nop.Core.Domain.Orders;
+@using Nop.Core.Infrastructure;
+@{
+    var electronicsThemeSettings = EngineContext.Current.Resolve<SevenSpikes.Theme.Electronics.Domain.ElectronicsThemePluginsIntegrationSettings>();
+    var ajaxCartIntegrated = electronicsThemeSettings.IntegrateNopAjaxCart;
+
+    MvcHtmlString addProductVariantToCartAjaxButtonHtml = MvcHtmlString.Empty;
+    if(ajaxCartIntegrated && !Model.DisableBuyButton)
+    {
+        addProductVariantToCartAjaxButtonHtml = Html.Action("GetAddProductVariantToCartAjaxButton", "NopAjaxCart", new { ProductVariantId = Model.ProductVariantId, ButtonValue = Model.AvailableForPreOrder ? T("ShoppingCart.PreOrder") : T("ShoppingCart.AddToCart") });
+    }
+}
+<div class="add-to-cart">
+    @if (Model.CustomerEntersPrice)
+    {
+        @Html.LabelFor(model => model.CustomerEnteredPrice, new { @class = "enter-price-label" })<text>:</text>
+        //round price
+        @Html.TextBox("CustomerEnteredPrice", Convert.ToInt32(Math.Ceiling(Model.CustomerEnteredPrice)), new { @class = "enter-price-input" })
+        <br />
+        <div class="entered-price-range">
+            @Model.CustomerEnteredPriceRange
+        </div>
+        <br />
+    }
+    @if (!Model.DisableBuyButton || !Model.DisableWishlistButton)
+    {
+        @Html.LabelFor(model => model.EnteredQuantity, new { @class = "qty-label" })
+        <div class="colon">:</div> 
+        if (Model.AllowedQuantities.Count > 0)
+        {
+            @Html.DropDownListFor(model => model.EnteredQuantity, Model.AllowedQuantities, new { @class = "qty-dropdown" })
+        }
+        else
+        {
+            @Html.TextBoxFor(model => model.EnteredQuantity, new { @class = "qty-input" })
+        }
+    }
+    @if (!Model.DisableBuyButton)
+    {
+        <div class="buttons">
+            @if (!MvcHtmlString.IsNullOrEmpty(addProductVariantToCartAjaxButtonHtml))
+            {     
+                @addProductVariantToCartAjaxButtonHtml
+            }
+            else
+            {
+                <input type="submit" name="addtocartbutton-@(Model.ProductVariantId)" class="productvariantaddtocartbutton" value="@(Model.AvailableForPreOrder ? T("ShoppingCart.PreOrder") : T("ShoppingCart.AddToCart"))" onclick="AjaxCart.addproductvarianttocart('@Url.RouteUrl("AddProductVariantToCart", new { productVariantId = Model.ProductVariantId, shoppingCartTypeId = (int)ShoppingCartType.ShoppingCart })', '#product-details-form');return false;" />
+            }
+        </div>
+    }
+    @Html.Widget("productdetails_add_info")
+</div>

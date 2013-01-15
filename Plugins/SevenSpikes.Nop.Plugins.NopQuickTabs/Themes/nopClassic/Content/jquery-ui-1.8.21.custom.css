@@ -1,0 +1,36 @@
+
+.productTabs {
+	margin-top: 20px !important;
+	padding: 0 !important;
+	border: none !important;
+}
+.productTabs .ui-tabs-nav {
+	height:40px; overflow:hidden; background:url('images/boxhead1.png') center repeat-x; padding:0; border:1px solid #999; border-bottom:1px solid #888; border-radius:2px;
+	box-shadow:0 0 3px #fff inset; font:bold 13px/38px Arial,Helvetica,sans-serif; color:#fff; text-shadow: -1px -1px 0 #666;
+}
+.productTabs li {
+	height: 38px !important;
+	background: none !important;
+	margin: 0 1px 0 0 !important;
+	padding: 0 !important;
+	border: none !important;
+}
+.productTabs li a {
+	display: block;
+	padding: 0 15px !important;
+	font :bold 13px/38px Arial,Helvetica,sans-serif !important;
+	color: #fff !important;
+	text-shadow: -1px -1px 0 #666 !important;
+}
+.productTabs li:hover {
+	background:url('images/tab.png') center repeat-x !important;
+}
+.productTabs .ui-tabs-selected {
+	background:url('images/tab.png') center repeat-x !important;
+	cursor: default !important;
+}
+.productTabs-body {
+	background: #eef;
+	border: 1px solid #ccc;
+    border-radius: 0 0 2px 2px;
+}

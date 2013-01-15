@@ -1,0 +1,8 @@
+﻿Group: 7Spikes
+FriendlyName: Nop Ajax Filters
+SystemName: SevenSpikes.Nop.AjaxFilters
+Version: 2.80
+SupportedVersions: 2.80
+Author: Seven Spikes
+DisplayOrder: 1
+FileName: SevenSpikes.Nop.AjaxFilters.dll

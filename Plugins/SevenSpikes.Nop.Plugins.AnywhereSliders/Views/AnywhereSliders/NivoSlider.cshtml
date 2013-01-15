@@ -1,0 +1,76 @@
+﻿@** Copyright 2012 Seven Spikes Ltd. All rights reserved. (http://www.nop-templates.com)
+* http://www.nop-templates.com/t/licensinginfo
+*@
+
+@using SevenSpikes.Nop.Plugins.AnywhereSliders.Models.Nivo
+@using System.Globalization
+@model NivoModel
+@{
+    Layout = null;
+
+    string skin = Model.Settings.Theme;
+}
+@if (Model.SliderImages != null && Model.SliderImages.Count > 0)
+{
+    // add css
+    Html.AppendCssFileParts("~/Plugins/SevenSpikes.Nop.Plugins.AnywhereSliders/Themes/" + Model.Theme + "/Content/nivo/skins/" + skin + "/" + skin + ".css");
+    Html.AppendCssFileParts("~/Plugins/SevenSpikes.Nop.Plugins.AnywhereSliders/Themes/" + Model.Theme + "/Content/nivo/nivo-slider.css");
+
+    // add javascript
+    Html.AppendScriptParts("~/Plugins/SevenSpikes.Nop.Plugins.AnywhereSliders/Scripts/nivo/jquery.nivo.slider.pack.js");   
+    
+    <div class="nivoSlider-wrapper theme-@skin">
+        <div class="ribbon">
+        </div>
+        <div id="@Model.SliderHtmlElementId" class="nivoSlider" style="width:@Model.Settings.WidthPx;height:@Model.Settings.HeightPx">
+            @foreach (var sliderImage in Model.SliderImages)
+            {
+                if (@Model.Settings.Links)
+                {
+                @Html.Raw(String.Format("<a href='{0}'>", sliderImage.Url)) 
+                }
+                <text><img alt='@sliderImage.Alt' src='@sliderImage.PicturePath' </text>
+                if (Model.Settings.ShowCaption)
+                {
+                <text> title='@sliderImage.DisplayText'
+                </text>
+                }
+                 if (Model.Settings.EnableControlNavigationThumbs)
+                {
+                <text> rel='@sliderImage.PictureThumbPath'
+                </text>
+                }
+                
+                @Html.Raw("/>")
+
+                 if (@Model.Settings.Links)
+                 { 
+                @Html.Raw("</a>")
+                 }
+            }
+        </div>
+    </div>
+    <script type="text/javascript">
+        $(window).load(function () {
+            $('#@Model.SliderHtmlElementId').nivoSlider({
+                effect: '@Model.Settings.Effect', // Specify sets like: 'fold,fade,sliceDown'
+        slices: @Model.Settings.Slices, // For slice animations
+        boxCols: @Model.Settings.BoxCols , // For box animations
+        boxRows: @Model.Settings.BoxRows, // For box animations
+        animSpeed: @Model.Settings.AnimationSpeed, // Slide transition speed
+        pauseTime: @Model.Settings.AutoSlideInterval, // How long each slide will show
+        startSlide: 0, // Set starting Slide (0 index)
+        directionNav: @Model.Settings.EnableDirectionNavigation.ToString().ToLower(), // Next & Prev navigation
+        directionNavHide: @Model.Settings.DirectionNavigationShowOnHoverOnly.ToString().ToLower(), // Only show on hover
+        controlNav: @Model.Settings.EnableControlNavigation.ToString().ToLower(), // 1,2,3... navigation
+        controlNavThumbs: @Model.Settings.EnableControlNavigationThumbs.ToString().ToLower(), // Use thumbnails for Control Nav
+        controlNavThumbsFromRel: true, // Use image rel for thumbs        
+        keyboardNav: @Model.Settings.KeyboardNavigation.ToString().ToLower(), // Use left & right arrows
+        pauseOnHover: @Model.Settings.PauseOnHover.ToString().ToLower(), // Stop animation while hovering
+        captionOpacity: @Model.Settings.CaptionOpacity.ToString(CultureInfo.InvariantCulture), // Universal caption opacity
+        prevText: '@Model.Settings.PrevText', // Prev directionNav text
+        nextText: '@Model.Settings.NextText' // Next directionNav text
+            });
+        });            
+    </script>
+}

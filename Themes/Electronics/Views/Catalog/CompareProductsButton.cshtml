@@ -1,0 +1,5 @@
+﻿@model AddToCompareListModel
+@using Nop.Web.Models.Catalog;
+<li>
+    <a class="link-wishlist" href="@(@Url.RouteUrl("AddProductToCompare", new { productId = Model.ProductId }))">@T("Products.Compare.AddToCompareList")</a>
+</li>

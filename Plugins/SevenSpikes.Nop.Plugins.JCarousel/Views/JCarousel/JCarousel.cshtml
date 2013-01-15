@@ -1,0 +1,170 @@
+﻿@** Copyright 2012 Seven Spikes Ltd. All rights reserved. (http://www.nop-templates.com)
+* http://www.nop-templates.com/t/licensinginfo
+*@
+
+@using System.Globalization
+@model SevenSpikes.Nop.Plugins.JCarousel.Models.JCarouselModel
+@if (Model.Items.Count > 0)
+{
+    var skin = Model.Settings.Skin;
+
+    Html.AppendCssFileParts("~/Plugins/SevenSpikes.Nop.Plugins.JCarousel/Themes/" + Model.Theme + "/Skins/" + skin + "/skin.css");
+    Html.AppendScriptParts("~/Plugins/SevenSpikes.Nop.Plugins.JCarousel/Scripts/jquery.jcarousel.min.js");
+    Html.AppendScriptParts("~/Plugins/SevenSpikes.Nop.Plugins.JCarousel/Scripts/jquery.disable.text.select.js");
+
+    var carouselHtmlElementId = Model.Settings.CarouselHtmlElementId;
+
+    string animationSpeed;
+    string easing;
+    string wrap;
+
+    if (Model.Settings.AnimationSpeed == "none")
+    {
+        animationSpeed = "0";
+    }
+    else
+    {
+        animationSpeed = "'" + @Model.Settings.AnimationSpeed + "'";
+    }
+
+    if (Model.Settings.Easing == "none")
+    {
+        easing = null;
+    }
+    else
+    {
+        easing = ", easing: '" + @Model.Settings.Easing + "'";
+    }
+
+    if (Model.Settings.WrapItems == "none")
+    {
+        wrap = null;
+    }
+    else
+    {
+        wrap = ", wrap: '" + @Model.Settings.WrapItems + "'";
+    }
+    
+    <script type="text/javascript">
+
+        jQuery(document).ready(function () {
+            jQuery('#@carouselHtmlElementId').jcarousel({
+                vertical: @Model.Settings.CarouselOrientation.ToString(CultureInfo.InvariantCulture).ToLower(),
+                rtl: @Model.Settings.RightToLeft.ToString(CultureInfo.InvariantCulture).ToLower(),
+                start: @Model.Settings.StartIndex,
+                scroll: @Model.Settings.ScrollItems,
+                animation: @Html.Raw(animationSpeed),
+                auto: @Model.Settings.Autoscroll,
+                size: @Model.Items.Count
+                @if (!String.IsNullOrEmpty(easing))
+                {
+                    @Html.Raw(easing)
+                }
+                @if (!String.IsNullOrEmpty(wrap))
+                {
+                    @Html.Raw(wrap)
+                }
+                });
+            
+            $(".jcarousel-prev, .jcarousel-next").disableTextSelect();
+        });
+        
+  
+   
+    </script>
+    <div class="@carouselHtmlElementId">
+        <div class="carousel_holder @skin">
+            @if (!String.IsNullOrEmpty(Model.Settings.Title) && Model.Settings.ShowTitle)
+            {
+                if (Model.Settings.CarouselOrientation)
+                {
+                <h2 class="vertical"><span>@Model.Settings.Title</span></h2>
+                }
+                else
+                {
+                <h2><span>@Model.Settings.Title</span></h2>
+                }
+            }
+            <ul id="@carouselHtmlElementId" class="jcarousel-skin-@skin">
+                @foreach (var item in Model.Items)
+                {           
+                    <li>
+                        <a class="thumb-img" href="@item.Url" title="@item.PictureModel.Title">
+                            <img alt="@item.PictureModel.AlternateText" src="@item.PictureModel.ImageUrl" title="@item.PictureModel.Title" /></a>
+                        <div class="right_side">
+                            @if (Model.Settings.ShowItemsName)
+                            {
+                                <a class="jcarousel-product-name" href="@item.Url" title="@item.PictureModel.Title">
+                                    @item.Name </a>
+                            }
+                            @if (Model.Settings.ShowShortDescription)
+                            {
+                                <p class="short_descript">@item.ShortDescription</p>
+                            }
+                            @if (Model.Settings.ShowProdictsPrice)
+                            {
+                                <div class="price_line">
+                                    @if (Model.Settings.ShowProdictsOldPrice)
+                                    { 
+                                        <span class="jcarousel-old-price">@item.ProductPriceModel.OldPrice</span>
+                                    }
+                                    <strong class="jcarousel-price">@item.ProductPriceModel.Price</strong>
+                                </div>
+                            }
+                            <!--price_line-->
+                            @if (Model.Settings.ShowDetailsButton)
+                            {
+                                <a class="button" href="@item.Url">@T("SevenSpikes.JCarousel.Admin.DetailsButton")</a>
+                            }
+                        </div>
+                        <!--right_side-->
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+
+@* If the wrap is set to circular and the carousel skin can display more items than there are, the carousel adds additional <li> elements to fill the
+    empty spaces. We hide these elements using a css class. Disabling the previous and next buttons, and disabling the autoscroll is done
+    by the code below.
+    NOTE: DO NOT MOVE THIS CODE. IF IT IS PLASED ELSEWHERE IT WILL NOT WORK.
+    The empty <li> elements are added after the execution of the code above. *@
+                if (@Model.Settings.WrapItems == "circular")
+                {
+    <script type="text/javascript">
+
+        jQuery(document).ready(function() {
+            var carouselElementClass = ".@carouselHtmlElementId";
+
+            var jCarouselContainer = jQuery(carouselElementClass).find(".jcarousel-container-horizontal")[0];
+            
+            if(jCarouselContainer != undefined)
+            {
+                var jCarouselContainerWidth = jQuery(jCarouselContainer).css('width');
+                jCarouselContainerWidth = jCarouselContainerWidth.substring(0, jCarouselContainerWidth.length - 2);     
+            
+                var jCarouselItem = jQuery(carouselElementClass).find(".jcarousel-item-horizontal")[0];
+                
+                if(jCarouselItem != undefined)
+                {
+                    var jCarouselItemWidth = jQuery(jCarouselItem).css('width');
+                    jCarouselItemWidth = jCarouselItemWidth.substring(0, jCarouselItemWidth.length - 2);
+
+                    var itemsInTheCarousel = @Model.Items.Count;
+
+                    var totalWidthOfAllItems = jCarouselItemWidth * itemsInTheCarousel;
+                    var carousel = jQuery("#@carouselHtmlElementId").data('jcarousel');
+
+                    if(totalWidthOfAllItems < jCarouselContainerWidth) {
+                        if (@Model.Settings.Autoscroll > 0) {
+
+                            carousel.stopAuto();
+                        }
+                        carousel.buttons(false, false);
+                    }
+                }
+            }
+        });
+    </script>
+                }
+}

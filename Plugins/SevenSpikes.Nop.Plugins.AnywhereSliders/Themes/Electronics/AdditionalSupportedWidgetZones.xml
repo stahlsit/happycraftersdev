@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<SupportedWidgetZones>
+  <WidgetZone>home_page_main_slider</WidgetZone>
+  <WidgetZone>electronics_left_side_banner</WidgetZone>  
+  <WidgetZone>electronics_right_side_banner</WidgetZone>
+</SupportedWidgetZones>

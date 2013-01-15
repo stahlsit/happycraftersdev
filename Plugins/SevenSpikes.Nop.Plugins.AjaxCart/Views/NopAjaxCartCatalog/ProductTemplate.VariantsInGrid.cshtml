@@ -1,0 +1,89 @@
+﻿@** Copyright 2012 Seven Spikes Ltd. All rights reserved. (http://www.nop-templates.com)
+* http://www.nop-templates.com/t/licensinginfo
+*@
+
+@model global::Nop.Web.Models.Catalog.ProductDetailsModel
+@using Nop.Web.Models.Catalog;
+@{    
+    //register CSS and JS files for file uploader button
+    <link href="@Url.Content("~/Content/fileuploader/fileuploader.css")" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="@Url.Content("~/Scripts/fileuploader.js")"></script>
+    }
+<h1 class="productname">
+@Model.Name
+</h1>
+@foreach (var productVariant in Model.ProductVariantModels)
+{
+    <div class="product-details-page">
+        @using (Html.BeginRouteForm("Product", new { SeName = Model.SeName }, FormMethod.Post))
+        {
+            <div class="product-essential">
+                <div class="product-details-info">
+                    <!--product pictures-->
+                    <div class="picture">
+                        <img alt="@productVariant.PictureModel.AlternateText" src="@productVariant.PictureModel.ImageUrl" title="@productVariant.PictureModel.Title" style="border-width: 0px;" />
+                    </div>
+                    <div class="overview">
+                        <h1 class="productname">
+                            @productVariant.Name
+                        </h1>
+                        <div class="shortdescription">
+                            @Html.Raw(productVariant.Description)
+                        </div>
+                        <div class="clear">
+                        </div>
+                        @{
+            var dataDictPrice = new ViewDataDictionary();
+            dataDictPrice.TemplateInfo.HtmlFieldPrefix = string.Format("price_{0}", productVariant.Id);
+                            @Html.Partial("_ProductVariantPrice", productVariant.ProductVariantPrice, dataDictPrice)
+                            
+            var dataDictAddToCart = new ViewDataDictionary();
+            dataDictAddToCart.Add("ProductId", Model.Id);
+            dataDictAddToCart.TemplateInfo.HtmlFieldPrefix = string.Format("addtocart_{0}", productVariant.Id);
+                            @Html.Partial("MiniProductDetailsViewProductVariantAddToCart", productVariant.AddToCart, dataDictAddToCart)                    
+                        }
+                        <div class="clear">
+                        </div>
+                        <span class="message-error"></span>@*@if (errors.Count > 0)
+                    {
+                        //display errors   
+                        <span class="message-error">
+                            @for (int i = 0; i < errors.Count; i++)
+                            {
+                                @errors[i]
+                                if (i != errors.Count - 1)
+                                {
+                                    <br />
+                                }
+                            }
+                        </span>
+                        <div class="clear">
+                        </div>
+                    }
+                    <br />*@
+                    </div>
+                </div>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="product-collateral">
+                <div class="product-variant-line">
+                    <!--product tier prices-->
+                    @Html.Action("ProductTierPrices", "Catalog", new { productVariantId = productVariant.Id })
+                    <div class="clear">
+                    </div>
+                    @{
+            var dataDictAttributes = new ViewDataDictionary { TemplateInfo = { HtmlFieldPrefix = string.Format("attributes_{0}", productVariant.Id) } };
+                        @Html.Partial("_ProductAttributes", productVariant.ProductVariantAttributes, dataDictAttributes)                  
+                    }
+                    <div class="clear">
+                    </div>
+                    @{
+            var dataDictGiftCard = new ViewDataDictionary { TemplateInfo = { HtmlFieldPrefix = string.Format("giftcard_{0}", productVariant.Id) } };
+                        @Html.Partial("_GiftCardInfo", productVariant.GiftCard, dataDictGiftCard)
+                    }
+                </div>
+            </div>
+        }
+    </div>
+}

@@ -1,0 +1,48 @@
+﻿/*
+* Copyright 2012 Seven Spikes Ltd. All rights reserved. (http://www.nop-templates.com)
+* http://www.nop-templates.com/t/licensinginfo
+*/
+
+/*~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*
+
+    MEGA MENU ADMIN 
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~*/
+table.adminContent td.adminTitle
+{
+    padding: 10px !important;
+}
+
+table.adminContent td.adminTitle label
+{
+    font-weight: bold;
+}
+
+table.adminContent td.adminContent
+{
+    padding: 10px !important;
+}
+
+.manufacturerSettings, .categorySettings
+{
+    padding-top: 45px;
+}
+
+.localizedResource
+{
+    margin-top: 10px;
+    width: 710px;
+}
+
+.adminHint
+{
+    padding: 0;
+}
+
+.adminHint p
+{
+    margin: 0;
+    margin-left: 40px;
+    margin-bottom: 15px;
+    font-style: italic;
+}
